@@ -7,10 +7,7 @@ namespace NETMenteeProject
     {
         public static void Main(string[] args)
         {
-            BasicExercises basicExercises = new BasicExercises();
 
-
-            BasicExercises.Problem9(); 
         }
     }
 }
