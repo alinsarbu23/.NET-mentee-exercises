@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "NET-Mentee-Project/1.0.0": {
+        "runtime": {
+          "NET-Mentee-Project.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NET-Mentee-Project/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using NET_Mentee_Project.Exercises;
+using System.IO;
 
 namespace NETMenteeProject
 {
@@ -6,7 +7,10 @@ namespace NETMenteeProject
     {
         public static void Main(string[] args)
         {
+            BasicExercises basicExercises = new BasicExercises();
 
+
+            BasicExercises.Problem9(); 
         }
     }
 }

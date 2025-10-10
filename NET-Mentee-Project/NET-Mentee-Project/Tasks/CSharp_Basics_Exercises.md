@@ -12,172 +12,163 @@ Input: (nu e necesar – valorile sunt în cod)
 Output: My name is Alex, I am 22 years old, and student = True.
 
 
-[2] Operații aritmetice
+[2] Operații aritmetice (inclusiv rest și putere, cu validare)
 
 Cerință:
-Citește două numere și calculează suma, diferența, produsul și câtul.
+Citește două numere (double). Afișează: Sum, Diff, Prod, Quot, Mod (% pentru întreagi dacă e posibil), Power (a^b).
+Dacă al doilea e 0, la împărțire afișează „NaN”, iar la mod sari peste.
 
-Explicație: Folosești operatorii +, -, *, / și conversia de la string la int.
+Explicație:
+Conversie sigură (TryParse), controale pentru împărțire la zero și operatori suplimentari (Math.Pow). Pentru %, doar dacă ambele sunt întregi.
 
 Input:
-First number: 8
-Second number: 2
+a = 8
+b = 2
+
 
 Output:
 Sum = 10
 Diff = 6
 Prod = 16
 Quot = 4
+Mod = 0
+a^b = 64
 
 
-[3] Par sau impar
+[3] Par/Impar + multipli & semn
 
 Cerință:
-Citește un număr și spune dacă e par sau impar.
+Citește un număr întreg. Spune dacă e par/impar, dacă e multiplu de 3 sau 5 și dacă e negativ/zero/pozitiv.
 
-Explicație:
-Un număr este par dacă restul împărțirii la 2 (% 2) este 0.
+Explicație: Folosești % 2, % 3, % 5 și o structură if/else if/else pentru semn.
 
 Input:
-Number: 7
+Number: -15
+
+Output:
+Odd, multiple of 3 and 5, negative
+
+
+[4] Calificativ cu validare + bonus punctual
+
+Cerință:
+Citește o notă 0–10. Dacă e în afara intervalului, cere din nou.
+Calificative: <5 = Eșuat, 5–6 Suficient, 7–8 Bine, 9 Foarte bine, 10 Excelent.
+Dacă nota e cel puțin 9 și ai „bonus = yes”, afișează „+ Bonus”.
+
+Explicație: Loop de validare, categorii cu if/else, branch suplimentar pentru bonus.
+
+Input:
+Nota: 11
+Nota: 9
+Bonus (yes/no): yessw
 
 
 Output:
-Odd
+Foarte bine + Bonus
 
 
-[4] Calificativ din notă
+[5] Ziua săptămânii + weekend/workday
 
 Cerință:
-Citește o notă între 0–10 și afișează calificativul:
+Citește un număr 1–7 și afișează ziua (EN) + dacă e „Weekend” sau „Workday”.
+Dacă numărul nu e valid, afișează „Invalid”.
 
-sub 5 → „Eșuat”
-5–6 → „Suficient”
-7–8 → „Bine”
-9 → „Foarte bine”
-10 → „Excelent”
-
-Explicație: Folosești lanț de if...else if...else și condiții logice.
+Explicație: switch sau switch expression, plus o condiție separată pentru weekend (6–7).
 
 Input:
-Nota (0–10): 9
+3
 
 
 Output:
-Foarte bine
+Wednesday – Workday
 
-
-[5] Ziua săptămânii
+[6] FizzBuzz extins (N dinamic + conține cifra)
 
 Cerință:
-Citește un număr (1–7) și afișează ziua corespunzătoare.
+Citește N (1..1000). Afișează 1..N cu reguli:
+multiplu 3 → „Fizz”; multiplu 5 → „Buzz”; ambele → „FizzBuzz”;
+dacă numărul conține cifra 3, adaugă „” la final (ex: „Fizz”, „7*”).
 
-Explicație: Folosim instrucțiunea switch pentru selecție multiplă.
+Explicație: Loop for, reguli de prioritate, conversie i.ToString() pentru „conține 3”.
 
 Input:
-Day number (1–7): 3
-
-
-Output:
-Wednesday
-
-
-[6] FizzBuzz
-
-Cerință:
-Afișează numerele 1–100, dar:
-
-multiplu de 3 → „Fizz”
-multiplu de 5 → „Buzz”
-multiplu de ambele → „FizzBuzz”
-
-Explicație: Folosim o buclă for și condiții multiple cu operatorii % și &&.
-
-Input: (nu se cere)
+N = 16
 
 
 Output (fragmente):
 1
 2
-Fizz
+Fizz*
 4
 Buzz
 Fizz
-...
+7
+8
+Fizz
+Buzz
+11
+Fizz
+FizzBuzz*
+13*
+14
+FizzBuzz
 
 
-[7] Suma cifrelor
-Cerință:
-Citește un număr și calculează suma cifrelor sale.
-
-Explicație: Împarți repetat prin 10 (/ 10) și aduni resturile (% 10).
-
-Input:
-Number: 123
-
-
-Output:
-Sum of digits = 6
-
-
-📘 [8] Array – medie, min, max
+[7] Suma cifrelor + număr de cifre + paritate sumă
 
 Cerință:
-Citește 5 numere într-un array.
-Calculează și afișează minimul, maximul și media.
+Citește un întreg (poate fi negativ). Afișează: SumăCifre, NrCifre (fără semn), SumăCifre par/impar.
 
-Explicație: Folosești buclă for pentru citire și foreach pentru procesare.
+Explicație: Normalizezi valoarea cu Math.Abs, împarți repetat la 10, numeri cifrele, verifici paritatea.
 
 Input:
-a[0]=2
-a[1]=5
-a[2]=1
-a[3]=8
-a[4]=4
+-90210
 
 
 Output:
-Min = 1, Max = 8, Avg = 4
+Sum = 12, Digits = 5, SumParity = Even
 
 
-📘 [9] Factorial
-
-Cerință: Citește un număr n și calculează n! (1 × 2 × … × n).
-
-Explicație: Folosești o buclă for și o variabilă acumulatoare result.
-
-Input:
-n = 5
-
-
-Output:
-5! = 120
-
-
-[10] Ghicește numărul
+[8] Array – distinct, sortat, mediană
 
 Cerință:
-Programul generează un număr aleator între 1 și 100.
-Utilizatorul trebuie să-l ghicească.
-După fiecare încercare:
+Citește n (3..15), apoi n numere întregi.
+Afișează: lista distinctă, sortată crescător, Min, Max, Median.
 
-„Too low!” dacă e mai mic
+Explicație: Poți elimina duplicate (set sau Distinct()), sortezi, mediană:
 
-„Too high!” dacă e mai mare
-
-„Correct!” + numărul de încercări când ghicește.
-
-Explicație: Se folosește clasa Random, o buclă while (true) și condiții if.
+impar: elementul din mijloc;
+par: media aritmetică a celor două centrale (double).
 
 Input:
-Guess the number (1..100)!
-Your guess: 50
-Too high!
-Your guess: 20
-Too low!
-Your guess: 37
-Correct! Tries = 3
+n = 7
+[2, 5, 1, 8, 4, 2, 5]
 
 
 Output:
-(în funcție de rulare, exemplul de mai sus este tipic)
+Distinct sorted: [1, 2, 4, 5, 8]
+Min=1, Max=8, Median=4
+
+
+
+[9] Ghicește numărul (hot/cold, limită încercări, replay)
+
+Cerință:
+Joc 1..100: până la 7 încercări.
+După fiecare ghicire: „Too low/Too high”.
+Începând cu a doua încercare, spune și „Hotter/Colder” față de distanța anterioară.
+La final întreabă „Play again? (Y/N)”.
+
+Explicație: Random, stocare previousGuess, compari |secret - guess|. Contor încercări, validare input.
+
+Input (exemplu):
+Guess: 50  -> Too high
+Guess: 30  -> Too low, Hotter
+Guess: 37  -> Correct in 3 tries!
+Play again? (Y/N): N
+
+
+Output:
+Correct in 3 tries!
+Goodbye!

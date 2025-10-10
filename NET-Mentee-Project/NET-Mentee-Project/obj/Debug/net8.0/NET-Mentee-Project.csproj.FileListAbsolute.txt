@@ -1,0 +1,15 @@
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\bin\Debug\net8.0\NET-Mentee-Project.exe
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\bin\Debug\net8.0\NET-Mentee-Project.deps.json
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\bin\Debug\net8.0\NET-Mentee-Project.runtimeconfig.json
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\bin\Debug\net8.0\NET-Mentee-Project.dll
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\bin\Debug\net8.0\NET-Mentee-Project.pdb
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\NET-Mentee-Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\NET-Mentee-Project.AssemblyInfoInputs.cache
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\NET-Mentee-Project.AssemblyInfo.cs
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\NET-Mentee-Project.csproj.CoreCompileInputs.cache
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\NET-Mentee-Project.sourcelink.json
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\NET-Mentee-Project.dll
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\refint\NET-Mentee-Project.dll
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\NET-Mentee-Project.pdb
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\NET-Mentee-Project.genruntimeconfig.cache
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\NET-Mentee-Project\obj\Debug\net8.0\ref\NET-Mentee-Project.dll
