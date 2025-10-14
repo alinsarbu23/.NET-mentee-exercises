@@ -3,12 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\exercises\\basicexercises.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|solutionrelative:net-mentee-project\\exercises\\basicexercises.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\models\\bankaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\models\\bankaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\tasks\\csharp_basics_exercises.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|solutionrelative:net-mentee-project\\tasks\\csharp_basics_exercises.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\models\\interfaces\\iinterestbearing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\models\\interfaces\\iinterestbearing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\models\\interfaces\\ioverdraftpolicy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\models\\interfaces\\ioverdraftpolicy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\models\\interfaces\\istatement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\models\\interfaces\\istatement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\models\\interfaces\\itransactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\models\\interfaces\\itransactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\services\\accountregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\services\\accountregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\models\\loanaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\models\\loanaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\models\\savingsaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\models\\savingsaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\models\\checkingaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\models\\checkingaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\minibank.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\minibank.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\minibank\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9170B98B-40E1-4169-B739-D3B48E6A0826}|MiniBank\\MiniBank.csproj|solutionrelative:minibank\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,24 +58,154 @@
       "DocumentGroups": [
         {
           "DockedWidth": 207,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BasicExercises.cs",
-              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Exercises\\BasicExercises.cs",
-              "RelativeDocumentMoniker": "NET-Mentee-Project\\Exercises\\BasicExercises.cs",
-              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Exercises\\BasicExercises.cs",
-              "RelativeToolTip": "NET-Mentee-Project\\Exercises\\BasicExercises.cs",
-              "ViewState": "AgIAALUBAAAAAAAAAAAAAMIBAAAVAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "AccountRegistry.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Services\\AccountRegistry.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Services\\AccountRegistry.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Services\\AccountRegistry.cs",
+              "RelativeToolTip": "MiniBank\\Services\\AccountRegistry.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T06:07:06.932Z",
+              "WhenOpened": "2025-10-14T07:14:17.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IStatement.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\IStatement.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Models\\Interfaces\\IStatement.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\IStatement.cs",
+              "RelativeToolTip": "MiniBank\\Models\\Interfaces\\IStatement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T07:14:01.398Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "IOverdraftPolicy.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\IOverdraftPolicy.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Models\\Interfaces\\IOverdraftPolicy.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\IOverdraftPolicy.cs",
+              "RelativeToolTip": "MiniBank\\Models\\Interfaces\\IOverdraftPolicy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T07:13:43.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IInterestBearing.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\IInterestBearing.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Models\\Interfaces\\IInterestBearing.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\IInterestBearing.cs",
+              "RelativeToolTip": "MiniBank\\Models\\Interfaces\\IInterestBearing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T07:13:31.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ITransactable.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\ITransactable.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Models\\Interfaces\\ITransactable.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\ITransactable.cs",
+              "RelativeToolTip": "MiniBank\\Models\\Interfaces\\ITransactable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T07:13:22.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoanAccount.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\LoanAccount.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Models\\LoanAccount.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\LoanAccount.cs",
+              "RelativeToolTip": "MiniBank\\Models\\LoanAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T07:12:36.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SavingsAccount.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\SavingsAccount.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Models\\SavingsAccount.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\SavingsAccount.cs",
+              "RelativeToolTip": "MiniBank\\Models\\SavingsAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T07:12:26.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BankAccount.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\BankAccount.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Models\\BankAccount.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\BankAccount.cs",
+              "RelativeToolTip": "MiniBank\\Models\\BankAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T07:11:49.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CheckingAccount.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\CheckingAccount.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Models\\CheckingAccount.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\CheckingAccount.cs",
+              "RelativeToolTip": "MiniBank\\Models\\CheckingAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T07:12:10.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MiniBank",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\MiniBank.csproj",
+              "RelativeDocumentMoniker": "MiniBank\\MiniBank.csproj",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\MiniBank.csproj",
+              "RelativeToolTip": "MiniBank\\MiniBank.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-14T07:11:27.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Program.cs",
+              "RelativeDocumentMoniker": "MiniBank\\Program.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Program.cs",
+              "RelativeToolTip": "MiniBank\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T07:11:08.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Program.cs",
               "RelativeDocumentMoniker": "NET-Mentee-Project\\Program.cs",
@@ -48,25 +214,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T14:09:25.218Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 193,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CSharp_Basics_Exercises.md",
-              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Tasks\\CSharp_Basics_Exercises.md",
-              "RelativeDocumentMoniker": "NET-Mentee-Project\\Tasks\\CSharp_Basics_Exercises.md",
-              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Tasks\\CSharp_Basics_Exercises.md",
-              "RelativeToolTip": "NET-Mentee-Project\\Tasks\\CSharp_Basics_Exercises.md",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAAAK0AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-10-09T14:06:21.983Z",
               "EditorCaption": ""
             }
           ]
