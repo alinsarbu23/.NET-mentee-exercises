@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\exercises\\basicexercises.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|solutionrelative:net-mentee-project\\exercises\\basicexercises.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\tasks\\csharp_basics_exercises.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|solutionrelative:net-mentee-project\\tasks\\csharp_basics_exercises.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|solutionrelative:net-mentee-project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\exercises\\contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|solutionrelative:net-mentee-project\\exercises\\contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\tasks\\oop_exercises.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|solutionrelative:net-mentee-project\\tasks\\oop_exercises.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,30 +22,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 207,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BasicExercises.cs",
-              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Exercises\\BasicExercises.cs",
-              "RelativeDocumentMoniker": "NET-Mentee-Project\\Exercises\\BasicExercises.cs",
-              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Exercises\\BasicExercises.cs",
-              "RelativeToolTip": "NET-Mentee-Project\\Exercises\\BasicExercises.cs",
-              "ViewState": "AgIAALUBAAAAAAAAAAAAAMYBAAAZAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Contract.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Exercises\\Contract.cs",
+              "RelativeDocumentMoniker": "NET-Mentee-Project\\Exercises\\Contract.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Exercises\\Contract.cs",
+              "RelativeToolTip": "NET-Mentee-Project\\Exercises\\Contract.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAASwC4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T06:07:06.932Z",
+              "WhenOpened": "2025-10-16T14:02:52.793Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Program.cs",
               "RelativeDocumentMoniker": "NET-Mentee-Project\\Program.cs",
-              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Program.cs",
-              "RelativeToolTip": "NET-Mentee-Project\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Program.cs*",
+              "RelativeToolTip": "NET-Mentee-Project\\Program.cs*",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T14:09:25.218Z",
               "EditorCaption": ""
@@ -53,20 +53,20 @@
           ]
         },
         {
-          "DockedWidth": 193,
+          "DockedWidth": 207,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CSharp_Basics_Exercises.md",
-              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Tasks\\CSharp_Basics_Exercises.md",
-              "RelativeDocumentMoniker": "NET-Mentee-Project\\Tasks\\CSharp_Basics_Exercises.md",
-              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Tasks\\CSharp_Basics_Exercises.md",
-              "RelativeToolTip": "NET-Mentee-Project\\Tasks\\CSharp_Basics_Exercises.md",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAmwK4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "OOP_Exercises.md",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Tasks\\OOP_Exercises.md",
+              "RelativeDocumentMoniker": "NET-Mentee-Project\\Tasks\\OOP_Exercises.md",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Tasks\\OOP_Exercises.md",
+              "RelativeToolTip": "NET-Mentee-Project\\Tasks\\OOP_Exercises.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-10-09T14:06:21.983Z",
+              "WhenOpened": "2025-10-10T12:40:41.003Z",
               "EditorCaption": ""
             }
           ]
