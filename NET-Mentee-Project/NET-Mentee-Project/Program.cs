@@ -1,4 +1,5 @@
 ﻿using NET_Mentee_Project.Exercises;
+using NET_Mentee_Project.Library;
 using NET_Mentee_Project.PlaylistManager;
 using System.Globalization;
 using System.IO;
@@ -8,7 +9,7 @@ namespace NETMenteeProject
 {
     public class Program
     {
-        public static void SolvingProblem1()
+        public static void Problem1()
         {
             int age;
             string email;
@@ -31,7 +32,7 @@ namespace NETMenteeProject
             string result = contract.ToString();
             Console.WriteLine(result);
         }
-        public static void SolvingProblem2()
+        public static void Problem2()
         {
             Console.Write("Insert the name of the playlist:");
             string name = Console.ReadLine() ?? "Default name";
@@ -136,9 +137,140 @@ namespace NETMenteeProject
 
         }
 
+        public static void Problem3()
+        {
+            int year;
+            string title, author, input, line;
+
+            List<Book> books = new List<Book>();
+
+            while(true)
+            {
+                PrintMenuProblem3();
+
+                input = Console.ReadLine() ?? string.Empty;
+
+                if(string.IsNullOrEmpty(input))
+                {
+                    throw new ArgumentNullException("Invalid input. Try again");
+                }
+
+                if(input.StartsWith("ADD", StringComparison.OrdinalIgnoreCase))
+                {
+                    line = input.Substring(4);
+                    var context = line.Split(";", 3, StringSplitOptions.TrimEntries);
+                    if(context.Length == 3 && int.TryParse(context[2], NumberStyles.Integer, CultureInfo.InvariantCulture, out year))
+                    {
+                        try
+                        {
+                            Book book = new Book(context[0].Trim(), context[1].Trim(), year);
+                            books.Add(book);
+                            Console.WriteLine($"Book '{book.Title}' added successfully.");
+                        }
+                        catch(Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please provide title, author and year separated by semicolons.");
+                    }
+                }
+                else if(input.StartsWith("BORROW", StringComparison.OrdinalIgnoreCase))
+                {
+                    line = input.Substring(7);
+                    var context = line.Split(";");
+                    if(context.Length == 1)
+                    {
+                        try
+                        {
+                            books.FirstOrDefault(b => b.Title.Equals(context[0])).Borrow();
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Book ot found. Try again");
+                    }
+                }
+                else if (input.StartsWith("RETURN", StringComparison.OrdinalIgnoreCase))
+                {
+                    line = input.Substring(7);
+                    var context = line.Split(";");
+                    if (context.Length == 1)
+                    {
+                        try
+                        {
+                            books.FirstOrDefault(b => b.Title.Equals(context[0])).Return();
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Book ot found. Try again");
+                    }
+                }
+                else if(input.StartsWith("FIND", StringComparison.OrdinalIgnoreCase))
+                {
+                    line = input.Substring(5);
+                    var context = line.Split(";");
+
+                    if(context.Length == 1)
+                    {
+                        var book = books.FirstOrDefault(b => b.Title.Contains(context[0]));
+                        if (book != null) 
+                        {
+                            Console.WriteLine($"Book ID: {book.Id} Name: {book.Title} - {book.Author} ({book.Year}) - Available: {book.IsAvailable}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Book with the title {context[0]} not found");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid book title. Please try again !");
+                    }
+
+                }
+                else if(input.StartsWith("LIST", StringComparison.OrdinalIgnoreCase))
+                {
+                    foreach(var book in books)
+                    {
+                        Console.WriteLine($"Book ID: {book.Id} Name: {book.Title} - {book.Author} ({book.Year}) - Available: {book.IsAvailable}");
+                    }
+                }
+                else if(input.StartsWith("END", StringComparison.OrdinalIgnoreCase))
+                {
+                    break;
+                }
+            }
+
+
+        }
+
+        public static void PrintMenuProblem3()
+        {
+            Console.WriteLine("========== LIBRARY ==========");
+            Console.WriteLine("Select an option from the menu");
+            Console.WriteLine("1. ADD title;author;year");
+            Console.WriteLine("2. Borrow title");
+            Console.WriteLine("3. Find title");
+            Console.WriteLine("4. Return title");
+            Console.WriteLine("5. List");
+            Console.WriteLine("6. End");
+        }
+
         public static void Main(string[] args)
         {
-            SolvingProblem2();
+            Problem3();
 
         }
     }
