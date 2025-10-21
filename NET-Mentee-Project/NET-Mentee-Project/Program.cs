@@ -1,5 +1,7 @@
 ﻿using NET_Mentee_Project.Exercises;
 using NET_Mentee_Project.Library;
+using NET_Mentee_Project.Parking_lot;
+using NET_Mentee_Project.Parking_lot.Models;
 using NET_Mentee_Project.PlaylistManager;
 using System.Globalization;
 using System.IO;
@@ -267,10 +269,104 @@ namespace NETMenteeProject
             Console.WriteLine("5. List");
             Console.WriteLine("6. End");
         }
+        public static void Problem5()
+        {
+            var parkingLot = new ParkingLot();
+            while(true)
+            {
+                var line = Console.ReadLine();
+
+                if (line is null)
+                {
+                    Console.WriteLine("Invalid input");
+                }
+                line = line.Trim();
+
+                if(line.Length == 0)
+                {
+                    Console.WriteLine("Invalid input");
+                    continue;
+                }
+
+                var parts = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                var option = parts[0].ToUpperInvariant();
+
+                if(option.StartsWith("ENTER"))
+                {
+                    if (parts.Length != 4)
+                    {
+                        Console.WriteLine("ERROR: <Usage ENTER Car/Motorcycle/Truck> <plate> <yyyy-MM-ddTHH:mm>");
+                        break;
+                    }
+
+                    string type = parts[1];
+                    string plate = parts[2];
+
+                    if (!DateTime.TryParseExact(parts[3], "yyyy-MM-ddTHH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime entryTime))
+                    {
+                        Console.WriteLine("ERROR: Invalid datetime format.");
+                        continue;
+                    }
+
+                    Vehicle vehicle = type.ToUpperInvariant() switch
+                    {
+                        "CAR" => new Car(plate, entryTime),
+                        "MOTORCYCLE" => new Motorcycle(plate, entryTime),
+                        "TRUCK" => new Truck(plate, entryTime),
+                        _ => null!
+                    };
+
+                    if (vehicle == null)
+                    {
+                        Console.WriteLine("The vehicle type is not valid");
+                        continue;
+                    }
+
+                    Console.WriteLine(parkingLot.EnterVehicle(vehicle));
+                    continue;
+
+                }
+                else if(option.StartsWith("EXIT"))
+                {
+                    if (parts.Length != 3)
+                    {
+                        Console.WriteLine("ERROR: <Usage EXIT> <plate> <yyyy-MM-ddTHH:mm>");
+                        continue;
+                    }
+                    string plate = parts[1];
+
+                    if (!DateTime.TryParseExact(parts[2], "yyyy-MM-ddTHH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime exitTime))
+                    {
+                        Console.WriteLine("Invalid datetime.");
+                        continue;
+                    }
+
+                    Console.WriteLine( parkingLot.ExitVehicle(plate, exitTime));
+                    continue;
+                }
+
+                else if(option.StartsWith("REPORT"))
+                {
+                    parkingLot.Report();
+                    continue;
+                }
+
+                else if(option.StartsWith("END"))
+                {
+                    break;
+                }
+
+                else
+                {
+                    Console.WriteLine("Unknown command. Available commands: ENTER, EXIT, REPORT");
+                    continue;
+                }
+            }
+        }
 
         public static void Main(string[] args)
         {
-            Problem3();
+            Problem5();
 
         }
     }
