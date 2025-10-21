@@ -63,22 +63,12 @@ namespace MiniBank.Services
 
             if (!toAcc.Deposit(amount, out var depositErr))
             {
-                fromAcc.Deposit(amount, out _);
+                fromAcc.Deposit(amount, out _); //return the money if the transfer fails
                 error = $"Transfer failed on deposit: {depositErr}";
                 return false;
             }
 
             return true;
         }
-
-
-        public bool RemoveById(int id)
-        {
-            var acc = FindById(id);
-            if (acc is null) return false;
-            _accounts.Remove(acc);
-            return true;
-        }
-
     }
 }

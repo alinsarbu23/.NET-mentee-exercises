@@ -7,7 +7,7 @@ using MiniBank.Models.Interfaces;
 
 namespace MiniBank.Models
 {
-    public class LoanAccount : BankAccount, IInterestBearing, IStatement
+    public class LoanAccount : BankAccount, IInterestBearing, IStatement, ITransactable
     {
         public decimal MonthlyInterestRate { get; }
 

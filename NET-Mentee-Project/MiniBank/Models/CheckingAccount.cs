@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MiniBank.Models
 {
-    public class CheckingAccount : BankAccount, IOverdraftPolicy, IStatement
+    public class CheckingAccount : BankAccount, IOverdraftPolicy, IStatement, ITransactable
     {
         public decimal OverdraftLimit { get; }
 
-        public CheckingAccount(int id, string owner, decimal initialBalance, decimal overdraftLimit =-100m)
+        public CheckingAccount(int id, string owner, decimal initialBalance, decimal overdraftLimit =-200m)
             : base(id, owner, initialBalance)
         {
             OverdraftLimit = overdraftLimit;
@@ -22,7 +22,7 @@ namespace MiniBank.Models
         {
             if(NegativeBalanceCheck(amount, OverdraftLimit))
             {
-                error = $"Withdrawal would exceed overdraft limit of {OverdraftLimit:C}.";
+                error = $"Withdrawal would exceed overdraft limit of {OverdraftLimit:F2}.";
                 return false;
             }
             error = null;

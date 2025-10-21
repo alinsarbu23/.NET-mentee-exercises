@@ -69,7 +69,7 @@ namespace MiniBank
             }
             foreach (var a in registry.Accounts)
             {
-                Console.WriteLine($"#{a.Id} | {a.Owner} | {a.GetType().Name} | {a.Balance:C}");
+                Console.WriteLine($"#{a.Id} | {a.Owner} | {a.GetType().Name} | {a.Balance:F2}");
             }
 
         }
@@ -149,7 +149,7 @@ namespace MiniBank
             else
                 ok = acc.Withdraw(amount, out err);
 
-            Console.WriteLine(ok ? $"OK. New balance: {acc.Balance:C}" : err);
+            Console.WriteLine(ok ? $"OK. New balance: {acc.Balance:F2}" : err);
         }
 
 

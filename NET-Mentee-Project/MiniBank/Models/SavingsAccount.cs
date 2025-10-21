@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MiniBank.Models
 {
-    public class SavingsAccount : BankAccount, IInterestBearing, IStatement 
+    public class SavingsAccount : BankAccount, IInterestBearing, IStatement, ITransactable
     {
         public decimal MonthlyInterestRate { get; } 
         public SavingsAccount(int id, string owner, decimal initialBalance, decimal monthlyInterestRate = 0.01m)

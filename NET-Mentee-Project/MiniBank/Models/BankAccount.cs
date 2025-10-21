@@ -10,13 +10,13 @@ namespace MiniBank.Models
 {
 
     /// <summary>
-    /// Clasă de bază (abstractă) pentru toate conturile.
-    /// - Stare comună: Id, Owner, Balance
-    /// - Jurnal al operațiunilor (privat), afișat prin PrintStatement()
-    /// - Comportamente generale: Deposit, Withdraw (cu hook CanWithdraw), ApplyMonthEnd (no-op în bază)
-    /// - Clasele derivate definesc regulile de retragere în CanWithdraw(...)
+    /// Clasa de baza pentru toate conturile.
+    /// - Stare comuna: Id, Owner, Balance
+    /// - Jurnal al operatiunilor (privat), afisat prin PrintStatement()
+    /// - Comportamente generale: Deposit, Withdraw (cu hook CanWithdraw), ApplyMonthEnd 
+    /// - Clasele derivate definesc regulile de retragere in CanWithdraw(...)
     /// </summary>
-    public abstract class BankAccount
+    public abstract class BankAccount :ITransactable, IStatement
     {
         public int Id { get; }
         public string Owner { get; }
@@ -68,15 +68,14 @@ namespace MiniBank.Models
                 return false;
 
             Balance -= amount;
-            AddingMessage($"Withdrew {amount:C}, new balance is {Balance:C}");
+            AddingMessage($"Withdrew {amount:F2}, new balance is {Balance:F2}");
             error = null;  
             return true;
         }
 
-
-
         protected abstract bool CanWithdraw(decimal amount, out string? error);
-        public virtual void ApplyMonthEnd() { } //it will be applied in program.cs
+        public abstract void ApplyMonthEnd(); //it will be applied in program.cs
+
         public void PrintStatement()
         {
             Console.WriteLine($"Account Statement for {Owner} (ID: {Id})");
@@ -85,6 +84,7 @@ namespace MiniBank.Models
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine($"Current Balance: {Balance:C}");
         }
+
         public void PrintRecords()
         {
             foreach (var record in _records)
