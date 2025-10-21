@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiniBank")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21c3e37febb23a7648176d4e8177213300527647")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca030ff3aa310744e23de3aec83b5acea01c0058")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiniBank")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiniBank")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
