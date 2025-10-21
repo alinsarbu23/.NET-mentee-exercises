@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using MiniBank.Models;
+﻿using MiniBank.Models;
 using MiniBank.Models.Interfaces;
 using MiniBank.Services;
 
@@ -165,7 +164,6 @@ namespace MiniBank
 
             Console.WriteLine(ok ? $"OK. New balance: {acc.Balance:F2}" : err);
         }
-
         static void ViewStatement()
         {
             Console.Write("Account ID: ");
@@ -184,7 +182,6 @@ namespace MiniBank
 
             acc.PrintStatement();
         }
-
         static void DoTransfer()
         {
             Console.Write("From ID: ");
@@ -219,7 +216,6 @@ namespace MiniBank
             }
 
         }
-
         static void RunMonthEnd()
         {
             foreach (var a in registry.Accounts)
@@ -252,7 +248,6 @@ namespace MiniBank
                 Console.WriteLine($"Save failed: {ex.Message}");
             }
         }
-
         static void LoadFromJson()
         {
             Console.Write($"File path [{DefaultJsonPath}]: ");
