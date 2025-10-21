@@ -1,0 +1,52 @@
+{
+  "Accounts": [
+    {
+      "Id": 1,
+      "Owner": "S\u00E2rbu Alin",
+      "Type": "CheckingAccount",
+      "Balance": 800,
+      "Records": [
+        "[2025-10-21 15:48:52] --\u003E Account created for S\u00E2rbu Alin with initial balance $100.00",
+        "[2025-10-21 15:48:52] --\u003E Overdraft limit set to ($200.00)",
+        "[2025-10-21 15:58:15] --\u003E Withdrew 250.00, new balance is -150.00",
+        "[2025-10-21 15:58:28] --\u003E Withdrew 50.00, new balance is -200.00",
+        "[2025-10-21 15:58:51] --\u003E Deposited 1000.00, new balance is 800.00"
+      ]
+    },
+    {
+      "Id": 2,
+      "Owner": "Popescu Ionel",
+      "Type": "SavingsAccount",
+      "Balance": 1440,
+      "Records": [
+        "[2025-10-21 15:49:12] --\u003E Account created for Popescu Ionel with initial balance $1,440.00",
+        "[2025-10-21 15:49:12] --\u003E Monthly interest rate set to 1.00%"
+      ]
+    },
+    {
+      "Id": 4,
+      "Owner": "Gheorghe Gicu",
+      "Type": "LoanAccount",
+      "Balance": 80,
+      "Records": [
+        "[2025-10-21 15:49:44] --\u003E Account created for Gheorghe Gicu with initial balance ($120.00)",
+        "[2025-10-21 15:49:44] --\u003E Loan created: $120.00; monthly interest 2.00%",
+        "[2025-10-21 15:58:02] --\u003E Withdrew 1500.00, new balance is -1620.00",
+        "[2025-10-21 15:59:08] --\u003E Deposited 1700.00, new balance is 80.00"
+      ]
+    },
+    {
+      "Id": 5,
+      "Owner": "Vasilescu Robert",
+      "Type": "CheckingAccount",
+      "Balance": 300,
+      "Records": [
+        "[2025-10-21 15:50:05] --\u003E Account created for Vasilescu Robert with initial balance $1,500.00",
+        "[2025-10-21 15:50:05] --\u003E Overdraft limit set to ($200.00)",
+        "[2025-10-21 15:58:02] --\u003E Deposited 1500.00, new balance is 3000.00",
+        "[2025-10-21 15:58:51] --\u003E Withdrew 1000.00, new balance is 2000.00",
+        "[2025-10-21 15:59:08] --\u003E Withdrew 1700.00, new balance is 300.00"
+      ]
+    }
+  ]
+}

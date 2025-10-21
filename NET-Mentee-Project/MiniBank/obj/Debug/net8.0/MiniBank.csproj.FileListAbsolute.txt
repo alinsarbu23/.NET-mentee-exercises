@@ -1,0 +1,15 @@
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\bin\Debug\net8.0\MiniBank.exe
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\bin\Debug\net8.0\MiniBank.deps.json
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\bin\Debug\net8.0\MiniBank.runtimeconfig.json
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\bin\Debug\net8.0\MiniBank.dll
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\bin\Debug\net8.0\MiniBank.pdb
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\MiniBank.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\MiniBank.AssemblyInfoInputs.cache
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\MiniBank.AssemblyInfo.cs
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\MiniBank.csproj.CoreCompileInputs.cache
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\MiniBank.sourcelink.json
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\MiniBank.dll
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\refint\MiniBank.dll
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\MiniBank.pdb
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\MiniBank.genruntimeconfig.cache
+C:\Users\asarbu\OneDrive - ENDAVA\Documents\Endava\Projects\.NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\Debug\net8.0\ref\MiniBank.dll
