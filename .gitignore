@@ -416,3 +416,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Custom files
+NET-Mentee-Project\MiniBank\bin\Debug\net8.0\data.json
