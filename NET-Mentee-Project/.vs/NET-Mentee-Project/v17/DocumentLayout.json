@@ -62,6 +62,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 0,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\README.md",
@@ -72,6 +73,17 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2025-10-21T05:45:44.955Z",
               "EditorCaption": ""
+=======
+              "DocumentIndex": 1,
+              "Title": "ParkingLot.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Parking lot\\ParkingLot.cs",
+              "RelativeDocumentMoniker": "NET-Mentee-Project\\Parking lot\\ParkingLot.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Parking lot\\ParkingLot.cs",
+              "RelativeToolTip": "NET-Mentee-Project\\Parking lot\\ParkingLot.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwEIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T06:23:02.574Z"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
@@ -194,7 +206,11 @@
               "RelativeDocumentMoniker": "NET-Mentee-Project\\Program.cs",
               "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Program.cs",
               "RelativeToolTip": "NET-Mentee-Project\\Program.cs",
+<<<<<<< Updated upstream
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAGgBAAAAAAAAAAAowCsBAAAVAAAAAAAAAA==",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T14:09:25.218Z"
             }

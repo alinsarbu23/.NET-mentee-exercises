@@ -57,6 +57,13 @@
     {
       "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|solutionrelative:net-mentee-project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+<<<<<<< Updated upstream
+=======
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|c:\\users\\asarbu\\onedrive - endava\\documents\\endava\\projects\\.net-mentee-exercises\\net-mentee-project\\net-mentee-project\\parking lot\\parkinglot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14F2405E-E1DE-410B-AAEC-7B670C1D87B6}|NET-Mentee-Project\\NET-Mentee-Project.csproj|solutionrelative:net-mentee-project\\parking lot\\parkinglot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -87,6 +94,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 4,
               "Title": "ITransactable.cs",
               "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\ITransactable.cs",
@@ -94,9 +102,19 @@
               "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\MiniBank\\Models\\Interfaces\\ITransactable.cs",
               "RelativeToolTip": "MiniBank\\Models\\Interfaces\\ITransactable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+=======
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Program.cs",
+              "RelativeDocumentMoniker": "NET-Mentee-Project\\Program.cs",
+              "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Program.cs",
+              "RelativeToolTip": "NET-Mentee-Project\\Program.cs",
+              "ViewState": "AgIAAB0BAAAAAAAAAAAswCsBAAAVAAAAAAAAAA==",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T05:45:00.609Z",
               "EditorCaption": ""
+<<<<<<< Updated upstream
             },
             {
               "$type": "Document",
@@ -248,6 +266,8 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-09T14:09:25.218Z"
+=======
+>>>>>>> Stashed changes
             }
           ]
         }
