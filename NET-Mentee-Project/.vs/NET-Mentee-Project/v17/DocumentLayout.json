@@ -83,6 +83,7 @@
               "ViewState": "AgIAAAYAAAAAAAAAAAAYwEIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T06:23:02.574Z"
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
             },
             {
@@ -97,6 +98,8 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T05:42:34.467Z",
               "EditorCaption": ""
+=======
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
@@ -207,7 +210,11 @@
               "ToolTip": "C:\\Users\\asarbu\\OneDrive - ENDAVA\\Documents\\Endava\\Projects\\.NET-mentee-exercises\\NET-Mentee-Project\\NET-Mentee-Project\\Program.cs",
               "RelativeToolTip": "NET-Mentee-Project\\Program.cs",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAGgBAAAAAAAAAAAowCsBAAAVAAAAAAAAAA==",
+>>>>>>> Stashed changes
 =======
               "ViewState": "AgIAAGgBAAAAAAAAAAAowCsBAAAVAAAAAAAAAA==",
 >>>>>>> Stashed changes
