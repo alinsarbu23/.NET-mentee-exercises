@@ -36,7 +36,7 @@ namespace MiniBank.Models
             {
                 var interest = (-Balance) * MonthlyInterestRate; 
                 Balance -= interest;
-                AddingMessage($"Monthly debt interest -{interest:C}. New balance {Balance:C}");
+                AddingMessage($"Monthly debt interest -{interest:F2}. New balance {Balance:F2}");
             }
         }
 

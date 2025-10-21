@@ -8,15 +8,7 @@ using System.Threading.Tasks;
 
 namespace MiniBank.Models
 {
-
-    /// <summary>
-    /// Clasa de baza pentru toate conturile.
-    /// - Stare comuna: Id, Owner, Balance
-    /// - Jurnal al operatiunilor (privat), afisat prin PrintStatement()
-    /// - Comportamente generale: Deposit, Withdraw (cu hook CanWithdraw), ApplyMonthEnd 
-    /// - Clasele derivate definesc regulile de retragere in CanWithdraw(...)
-    /// </summary>
-    public abstract class BankAccount :ITransactable, IStatement
+    public abstract class BankAccount : IStatement, ITransactable
     {
         public int Id { get; }
         public string Owner { get; }
@@ -50,7 +42,7 @@ namespace MiniBank.Models
             }
 
             Balance += amount;
-            AddingMessage($"Deposited {amount:C}, new balance is {Balance:C}");
+            AddingMessage($"Deposited {amount:F2}, new balance is {Balance:F2}");
             error = null;
             return true;
 
@@ -95,6 +87,18 @@ namespace MiniBank.Models
         protected bool NegativeBalanceCheck(decimal amount, decimal limit)
         {
             return (Balance - amount) < limit;
+        }
+
+        public void RestoreState(decimal balance, IEnumerable<string> records)
+        {
+            Balance = balance;
+            _records.Clear();
+            _records.AddRange(records);
+        }
+
+        public List<string> GetRecords()
+        {
+            return new List<string>(_records);
         }
     }
 }

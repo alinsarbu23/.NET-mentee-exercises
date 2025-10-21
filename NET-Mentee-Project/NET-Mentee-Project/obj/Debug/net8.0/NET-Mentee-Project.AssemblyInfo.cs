@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NET-Mentee-Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79002ec3a0507459be0b132fd36a7749d5117caf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bda56f7595b845977330793da72a75cabc2f9741")]
 [assembly: System.Reflection.AssemblyProductAttribute("NET-Mentee-Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NET-Mentee-Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

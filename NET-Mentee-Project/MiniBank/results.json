@@ -1,0 +1,44 @@
+{
+  "Accounts": [
+    {
+      "Id": 1,
+      "Owner": "S\u00E2rbu Alin",
+      "Type": "CheckingAccount",
+      "Balance": 100,
+      "Records": [
+        "[2025-10-21 15:48:52] --\u003E Account created for S\u00E2rbu Alin with initial balance $100.00",
+        "[2025-10-21 15:48:52] --\u003E Overdraft limit set to ($200.00)"
+      ]
+    },
+    {
+      "Id": 2,
+      "Owner": "Popescu Ionel",
+      "Type": "SavingsAccount",
+      "Balance": 1440,
+      "Records": [
+        "[2025-10-21 15:49:12] --\u003E Account created for Popescu Ionel with initial balance $1,440.00",
+        "[2025-10-21 15:49:12] --\u003E Monthly interest rate set to 1.00%"
+      ]
+    },
+    {
+      "Id": 4,
+      "Owner": "Gheorghe Gicu",
+      "Type": "LoanAccount",
+      "Balance": -120,
+      "Records": [
+        "[2025-10-21 15:49:44] --\u003E Account created for Gheorghe Gicu with initial balance ($120.00)",
+        "[2025-10-21 15:49:44] --\u003E Loan created: $120.00; monthly interest 2.00%"
+      ]
+    },
+    {
+      "Id": 5,
+      "Owner": "Vasilescu Robert",
+      "Type": "CheckingAccount",
+      "Balance": 1500,
+      "Records": [
+        "[2025-10-21 15:50:05] --\u003E Account created for Vasilescu Robert with initial balance $1,500.00",
+        "[2025-10-21 15:50:05] --\u003E Overdraft limit set to ($200.00)"
+      ]
+    }
+  ]
+}
