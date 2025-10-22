@@ -13,11 +13,6 @@ namespace MiniBank.Models
         public SavingsAccount(int id, string owner, decimal initialBalance, decimal monthlyInterestRate = 0.01m)
             : base(id, owner, initialBalance)
         {
-            if(monthlyInterestRate <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(monthlyInterestRate), "Monthly interest rate must be a positive value");
-            }
-
             MonthlyInterestRate = monthlyInterestRate;
             AddingMessage($"Monthly interest rate set to {MonthlyInterestRate:P}");
         }

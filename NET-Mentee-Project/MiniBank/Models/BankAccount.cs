@@ -14,13 +14,10 @@ namespace MiniBank.Models
         public string Owner { get; }
         public decimal Balance { get; protected set; }
 
-        private readonly List<string> _records = new(); //for history
+        private readonly List<string> _records = new();
 
         protected BankAccount(int id, string owner, decimal initialBalance)
         {
-            if(string.IsNullOrWhiteSpace(owner))
-                throw new ArgumentException("Owner name cannot be empty.", nameof(owner));
-
             Id = id;
             Owner = owner.Trim();
             Balance = initialBalance;
@@ -66,7 +63,7 @@ namespace MiniBank.Models
         }
 
         protected abstract bool CanWithdraw(decimal amount, out string? error);
-        public abstract void ApplyMonthEnd(); //it will be applied in program.cs
+        public abstract void ApplyMonthEnd();
 
         public void PrintStatement()
         {
