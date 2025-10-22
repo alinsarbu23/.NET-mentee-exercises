@@ -33,6 +33,5 @@ namespace MiniBank.Models
         {
             // no monthly interest for checking accounts
         }
-
     }
 }

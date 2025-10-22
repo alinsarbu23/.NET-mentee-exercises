@@ -14,7 +14,6 @@ namespace MiniBank.Services
     {
         private readonly List<BankAccount> _accounts = new();
         private int _nextId = 1;
-
         public IReadOnlyList<BankAccount> Accounts => _accounts;
         public int NextId() => _nextId++;
 

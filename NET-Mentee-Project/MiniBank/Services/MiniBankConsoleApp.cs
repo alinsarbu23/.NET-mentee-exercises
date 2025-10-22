@@ -121,19 +121,19 @@ namespace MiniBank.Services
             }
 
             int id = _registry.NextId();
-            BankAccount acc;
+            BankAccount account;
 
             if (type == "checking")
             {
-                acc = new CheckingAccount(id, owner, amount);
+                account = new CheckingAccount(id, owner, amount);
             }
             else if (type == "savings")
             {
-                acc = new SavingsAccount(id, owner, amount);
+                account = new SavingsAccount(id, owner, amount);
             }
             else if (type == "loan")
             {
-                acc = new LoanAccount(id, owner, amount);
+                account = new LoanAccount(id, owner, amount);
             }
             else
             {
@@ -141,8 +141,8 @@ namespace MiniBank.Services
                 return;
             }
 
-            _registry.Add(acc);
-            Console.WriteLine($"Account #{id} created for {owner} ({acc.GetType().Name}) with {amount:C}");
+            _registry.Add(account);
+            Console.WriteLine($"Account #{id} created for {owner} ({account.GetType().Name}) with {amount:C}");
         }
 
         private void DoTransaction(bool isDeposit)

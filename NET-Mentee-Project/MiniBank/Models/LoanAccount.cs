@@ -18,7 +18,6 @@ namespace MiniBank.Models
             AddingMessage($"Loan created: {initialLoanAmount:C}; monthly interest {MonthlyInterestRate:P}");
         }
 
-
         protected override bool CanWithdraw(decimal amount, out string? error)
         {
             error = null;

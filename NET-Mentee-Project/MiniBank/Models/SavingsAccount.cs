@@ -16,6 +16,7 @@ namespace MiniBank.Models
             MonthlyInterestRate = monthlyInterestRate;
             AddingMessage($"Monthly interest rate set to {MonthlyInterestRate:P}");
         }
+
         protected override bool CanWithdraw(decimal amount, out string? error)
         {
             if(NegativeBalanceCheck(amount, 0m))
