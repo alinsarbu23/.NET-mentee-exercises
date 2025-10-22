@@ -14,15 +14,9 @@ namespace MiniBank.Models
         public LoanAccount(int id, string owner, decimal initialLoanAmount, decimal monthlyInterestRate = 0.02m)
             : base(id, owner, -Math.Abs(initialLoanAmount))
         {
-            if (monthlyInterestRate < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(monthlyInterestRate), "Monthly interest rate cannot be negative.");
-            }
-
             MonthlyInterestRate = monthlyInterestRate;
             AddingMessage($"Loan created: {initialLoanAmount:C}; monthly interest {MonthlyInterestRate:P}");
         }
-
 
         protected override bool CanWithdraw(decimal amount, out string? error)
         {

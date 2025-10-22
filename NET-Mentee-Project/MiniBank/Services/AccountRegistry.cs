@@ -14,7 +14,6 @@ namespace MiniBank.Services
     {
         private readonly List<BankAccount> _accounts = new();
         private int _nextId = 1;
-
         public IReadOnlyList<BankAccount> Accounts => _accounts;
         public int NextId() => _nextId++;
 
@@ -69,7 +68,7 @@ namespace MiniBank.Services
 
             if (!toAcc.Deposit(amount, out var depositErr))
             {
-                fromAcc.Deposit(amount, out _); //return the money if the transfer fails
+                fromAcc.Deposit(amount, out _);
                 error = $"Transfer failed on deposit: {depositErr}";
                 return false;
             }
