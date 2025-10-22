@@ -8,7 +8,7 @@ namespace MiniBank
     public class Program
     {
         static AccountRegistry registry = new();
-        static readonly string DefaultJsonPath = "accounts.json";
+        static readonly string DefaultJsonPath = "testBankAccounts.json";
 
         public static void Main()
         {
