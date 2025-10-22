@@ -417,6 +417,17 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
-# Custom files
-NET-Mentee-Project\MiniBank\bin\Debug\net8.0\data.json
-NET-mentee-exercises\NET-Mentee-Project\MiniBank\obj\
+# -------------------------------------
+# Custom project-specific ignores
+# -------------------------------------
+
+# Ignore build and output folders
+bin/
+obj/
+
+# Ignore Visual Studio workspace folder
+.vs/
+
+# Ignore any local data files
+data.json
+
