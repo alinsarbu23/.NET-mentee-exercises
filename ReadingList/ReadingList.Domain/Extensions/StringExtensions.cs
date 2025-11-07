@@ -26,7 +26,6 @@ namespace ReadingList.Domain.Extensions
             return char.ToUpper(title[0]) + title.Substring(1).ToLower();
         }
 
-
         public static bool? ConvertAnswerToBool(this string? answer)
         {
             if(string.IsNullOrWhiteSpace(answer))

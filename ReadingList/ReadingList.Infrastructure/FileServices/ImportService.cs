@@ -77,8 +77,6 @@ namespace ReadingList.Infrastructure.FileServices
             return (imported, duplicates, malformed);
         }
         
-
-
         private static bool FindHeader(string line)
         {
             if(string.IsNullOrWhiteSpace(line))

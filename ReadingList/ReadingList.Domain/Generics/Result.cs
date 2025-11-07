@@ -9,7 +9,7 @@ namespace ReadingList.Domain.Generics
     public class Result<T>
     {
         public bool Ok { get; set; }
-        public T? Value { get; set; } //the result if Ok == true
+        public T? Value { get; set; }
         public string? Error { get; set; }
     }
 }
