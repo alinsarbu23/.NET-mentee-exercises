@@ -2,6 +2,6 @@
 {
     public interface IOrderEventPublisher
     {
-        void Publisher(OrderPlaced evt);
+        void Publish(OrderPlaced evt);
     }
 }
