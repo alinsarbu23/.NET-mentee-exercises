@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Factories\" />
-    <Folder Include="Observers\" />
+    <ProjectReference Include="..\Cafe.Domain\Cafe.Domain.csproj" />
   </ItemGroup>
 
 </Project>
