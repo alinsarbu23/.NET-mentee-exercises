@@ -2,8 +2,8 @@
 
 namespace Cafe.Domain.Factories
 {
-    public interface IBeverageFactory : IBeverage
+    public interface IBeverageFactory
     {
-        void Create(string key);
+        IBeverage Create(string key);
     }
 }
