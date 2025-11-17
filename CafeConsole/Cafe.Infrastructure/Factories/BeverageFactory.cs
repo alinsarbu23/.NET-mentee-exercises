@@ -7,20 +7,26 @@ namespace Cafe.Infrastructure.Factories
     {
         public IBeverage Create(string key)
         {
-            if (key == null) return new Espresso();
+            key = (key ?? "").Trim().ToLowerInvariant();
 
-            key = key.Trim().ToLowerInvariant();
+            switch (key)
+            {
+                case "1":
+                case "espresso":
+                    return new Espresso();
 
-            if (key == "1" || key == "espresso")
-                return new Espresso();
+                case "2":
+                case "tea":
+                    return new Tea();
 
-            if (key == "2" || key == "tea")
-                return new Tea();
+                case "3":
+                case "choc":
+                case "hotchocolate":
+                    return new HotChocolate();
 
-            if (key == "3" || key == "choc" || key == "hotchocolate")
-                return new HotChocolate();
-
-            throw new ArgumentException($"Unknown beverage key '{key}'");
+                default:
+                    throw new ArgumentException($"Unknown beverage key '{key}'");
+            }
         }
     }
 }
