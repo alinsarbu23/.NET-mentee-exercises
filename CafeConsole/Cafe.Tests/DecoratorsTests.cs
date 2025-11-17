@@ -1,6 +1,5 @@
 ﻿using Cafe.Domain.Beverages;
 using Cafe.Domain.Decorators;
-using Xunit;
 
 namespace Cafe.Tests
 {
@@ -13,12 +12,12 @@ namespace Cafe.Tests
             IBeverage beverage = new Espresso();
 
             // Act
-            beverage = new MilkDecorator(beverage);
-            beverage = new ExtraShotDecorator(beverage);
+            IBeverage withMilk = new MilkDecorator(beverage);
+            IBeverage withExtras = new ExtraShotDecorator(withMilk);
 
             // Assert
-            Assert.Equal(3.70m, beverage.Cost());
-            var description = beverage.Describe().ToLowerInvariant();
+            Assert.Equal(3.70m, withExtras.Cost());
+            var description = withExtras.Describe().ToLowerInvariant();
             Assert.Contains("milk", description);
             Assert.Contains("extra shot", description);
         }

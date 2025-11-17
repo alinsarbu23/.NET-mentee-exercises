@@ -1,5 +1,4 @@
 ﻿using Cafe.Domain.Pricing;
-using Xunit;
 
 namespace Cafe.Tests
 {

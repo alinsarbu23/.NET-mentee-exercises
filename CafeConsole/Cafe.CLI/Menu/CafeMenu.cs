@@ -1,4 +1,5 @@
 ﻿using Cafe.Application.Services;
+using Cafe.ConsoleUI.Utils;
 using Cafe.Domain.Beverages;
 using Cafe.Domain.Pricing;
 
@@ -16,7 +17,11 @@ namespace Cafe.ConsoleUI.Menu
             while (true)
             {
                 var action = ShowMainMenu();
-                if (action == MainAction.Exit) break;
+
+                if (action == MainAction.Exit)
+                {
+                    break;
+                }
 
                 if (action == MainAction.NewOrder)
                 {
@@ -34,14 +39,17 @@ namespace Cafe.ConsoleUI.Menu
 
         private MainAction ShowMainMenu()
         {
+
             Console.WriteLine("=== Cafe Console ===");
             Console.WriteLine("1) New order");
             Console.WriteLine("2) Analytics");
             Console.WriteLine("0) Exit");
+
             while (true)
             {
                 Console.Write("Choose: ");
                 var input = (Console.ReadLine() ?? "").Trim();
+
                 if (input == "1")
                 {
                     return MainAction.NewOrder;
@@ -69,7 +77,10 @@ namespace Cafe.ConsoleUI.Menu
             PrintReceipt(result.description, result.subtotal, result.total, strategy.Name);
             Console.WriteLine($"\nAnalytics: orders={_service.Analytics.OrdersCount}, revenue={_currency}{Math.Round(_service.Analytics.Revenue, 2):F2}\n");
 
-            if (!PromptYesNo("Place another order? (y/n): ")) Console.Clear();
+            if (!ConsoleHelper.PromptYesNo("Place another order? (y/n): "))
+            {
+                Console.Clear();
+            }
         }
 
         private void ShowAnalyticsSubmenu()
@@ -93,7 +104,11 @@ namespace Cafe.ConsoleUI.Menu
             {
                 Console.Write("Your choice [1-3]: ");
                 var input = Console.ReadLine()?.Trim() ?? "";
-                try { return _service.CreateBase(input); }
+
+                try 
+                { 
+                    return _service.CreateBase(input); 
+                }
                 catch { Console.WriteLine("Invalid choice. Try 1, 2 or 3."); }
             }
         }
@@ -109,8 +124,15 @@ namespace Cafe.ConsoleUI.Menu
                 Console.Write("Your choice: ");
                 var input = (Console.ReadLine() ?? "").Trim();
 
-                if (input == "0") return b;
-                if (input == "1") { b = _service.AddMilk(b); continue; }
+                if (input == "0")
+                {
+                    return b;
+                }
+                if (input == "1")
+                { 
+                    b = _service.AddMilk(b);
+                    continue; 
+                }
                 if (input == "2")
                 {
                     Console.Write("Flavor (e.g., vanilla): ");
@@ -118,7 +140,11 @@ namespace Cafe.ConsoleUI.Menu
                     b = _service.AddSyrup(b, flavor);
                     continue;
                 }
-                if (input == "3") { b = _service.AddExtraShot(b); continue; }
+                if (input == "3") 
+                { 
+                    b = _service.AddExtraShot(b);
+                    continue; 
+                }
 
                 Console.WriteLine("Invalid option.");
             }
@@ -133,8 +159,16 @@ namespace Cafe.ConsoleUI.Menu
             {
                 Console.Write("Your choice [1-2]: ");
                 var input = Console.ReadLine()?.Trim();
-                if (input == "1") return new RegularPricing();
-                if (input == "2") return new HappyHourPricing();
+
+                if (input == "1")
+                {
+                    return new RegularPricing();
+                }
+
+                if (input == "2")
+                {
+                    return new HappyHourPricing();
+                }
                 Console.WriteLine("Invalid choice.");
             }
         }
@@ -157,18 +191,6 @@ namespace Cafe.ConsoleUI.Menu
             }
             Console.WriteLine($"Total: {_currency}{Math.Round(total, 2):F2}");
             Console.WriteLine("===================\n");
-        }
-
-        private static bool PromptYesNo(string msg)
-        {
-            while (true)
-            {
-                Console.Write(msg);
-                var key = (Console.ReadLine() ?? "").Trim().ToLowerInvariant();
-                if (key is "y" or "yes") return true;
-                if (key is "n" or "no") return false;
-                Console.WriteLine("Please answer y/n.");
-            }
         }
 
         private enum MainAction

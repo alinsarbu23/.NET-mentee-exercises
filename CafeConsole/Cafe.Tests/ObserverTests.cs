@@ -1,8 +1,6 @@
-﻿using System;
-using Cafe.Application.Services;
+﻿using Cafe.Application.Services;
 using Cafe.Domain.Events;
 using Moq;
-using Xunit;
 
 namespace Cafe.Tests
 {

@@ -1,7 +1,5 @@
-﻿using System;
-using Cafe.Domain.Events;
+﻿using Cafe.Domain.Events;
 using Cafe.Infrastructure.Observers;
-using Xunit;
 
 namespace Cafe.Tests
 {
