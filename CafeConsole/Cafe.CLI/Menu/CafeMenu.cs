@@ -1,110 +1,83 @@
 ﻿using Cafe.Application.Services;
 using Cafe.Domain.Beverages;
-using Cafe.Domain.Decorators;
-using Cafe.Domain.Events;
-using Cafe.Domain.Factories;
 using Cafe.Domain.Pricing;
-using Cafe.Infrastructure.Factories;
-using Cafe.Infrastructure.Observers;
 
 namespace Cafe.ConsoleUI.Menu
 {
-    public class CafeMenu
+    public sealed class CafeMenu
     {
-        private readonly IBeverageFactory _factory = new BeverageFactory();
-        private readonly SimpleOrderEventPublisher _publisher = new();
-        private readonly InMemoryOrderAnalytics _analytics = new();
-        private readonly OrderConsoleLogger _logger = new();
+        private readonly IOrderService _service;
         private readonly string _currency = "$";
 
-        public CafeMenu()
+        public CafeMenu(IOrderService service)
         {
-            _publisher.Subscribe(_logger);
-            _publisher.Subscribe(_analytics);
+            _service = service;
         }
 
         public void Run()
         {
-            while(true)
+            while (true)
             {
-                var baseDrink = ChooseDrink();
-                var finalDrink = ChooseFlavour(baseDrink);
-
+                var baseDrink = ChooseBase();
+                var finalDrink = ChooseAddOns(baseDrink);
                 var strategy = ChoosePricingStrategy();
 
-                var subtotal = finalDrink.Cost();
-                var total = strategy.Apply(subtotal);
-                var orderId = Guid.NewGuid();
-                var at = DateTimeOffset.Now;
-                var description = finalDrink.Describe();
+                var result = _service.FinalizeOrder(finalDrink, strategy);
 
-                PrintReceipt(orderId, at, description, subtotal, total, strategy.Name);
-                _publisher.Publish(new OrderPlaced(orderId, at, description, subtotal, total));
+                PrintReceipt(result.description, result.subtotal, result.total, strategy.Name);
+                Console.WriteLine($"\nAnalytics: orders={_service.Analytics.OrdersCount}, revenue={_currency}{Math.Round(_service.Analytics.Revenue, 2):F2}\n");
 
-                Console.WriteLine();
-                Console.WriteLine($"Analytics: OrdersCount: {_analytics.OrdersCount}, revenue: {_currency}{Math.Round(_analytics.Revenue, 2):F2}\n");
-
-                if (!PromptYesNo("Place another order? (y/n): "))
-                {
-                    break;
-                }
+                if (!PromptYesNo("Place another order? (y/n): ")) break;
                 Console.Clear();
             }
         }
 
-        public IBeverage ChooseDrink()
+        private IBeverage ChooseBase()
         {
             Console.WriteLine("Choose base beverage:");
-            Console.WriteLine("\t1) Espresso ($2.50)");
-            Console.WriteLine("\t2) Tea ($2.00)");
-            Console.WriteLine("\t3) Hot Chocolate ($3.00)");
+            Console.WriteLine("  1) Espresso ($2.50)");
+            Console.WriteLine("  2) Tea ($2.00)");
+            Console.WriteLine("  3) Hot Chocolate ($3.00)");
 
             while (true)
             {
-                Console.Write("Your choice (1-3): ");
+                Console.Write("Your choice [1-3]: ");
                 var input = Console.ReadLine()?.Trim() ?? "";
-
-                try 
-                { 
-                    return _factory.Create(input); 
-                }
+                try { return _service.CreateBase(input); }
                 catch { Console.WriteLine("Invalid choice. Try 1, 2 or 3."); }
             }
         }
 
-        private IBeverage ChooseFlavour(IBeverage beverage)
+        private IBeverage ChooseAddOns(IBeverage b)
         {
-            while(true)
+            while (true)
             {
-                Console.WriteLine();
-                Console.WriteLine("Choose one flavour from bellow:");
-                Console.WriteLine("\t1) Milk (+0.40)");
-                Console.WriteLine("\t2) Syrup (+0.50)");
-                Console.WriteLine("\t3) Extra shot (+0.80)");
-                Console.WriteLine("\t0) Done");
-                Console.WriteLine("Your option:");
-
+                Console.WriteLine("\nAdd-ons (0 = Done):");
+                Console.WriteLine("  1) Milk (+0.40)");
+                Console.WriteLine("  2) Syrup (+0.50)");
+                Console.WriteLine("  3) Extra shot (+0.80)");
+                Console.Write("Your choice: ");
                 var input = (Console.ReadLine() ?? "").Trim();
 
                 if (input == "0")
                 {
-                    return beverage;
+                    return b;
                 }
-                if (input == "1")
+                if (input == "1") 
                 {
-                    beverage = new MilkDecorator(beverage);
-                    continue;
+                    b = _service.AddMilk(b); 
+                    continue; 
                 }
                 if (input == "2")
                 {
-                    Console.Write("Flavor (e.g. vanilla): ");
+                    Console.Write("Flavor (e.g., vanilla): ");
                     var flavor = (Console.ReadLine() ?? "").Trim();
-                    beverage = new SyrupDecorator(beverage, flavor);
+                    b = _service.AddSyrup(b, flavor);
                     continue;
                 }
-                if (input == "3") 
+                if (input == "3")
                 { 
-                    beverage = new ExtraShotDecorator(beverage); 
+                    b = _service.AddExtraShot(b);
                     continue; 
                 }
 
@@ -114,56 +87,49 @@ namespace Cafe.ConsoleUI.Menu
 
         private IPricingStrategy ChoosePricingStrategy()
         {
-            Console.WriteLine();
-            Console.WriteLine("Choose pricing strategy (1-2)");
-            Console.WriteLine("\t 1) Regular");
-            Console.WriteLine("\t 2) HappyHour (-20%)");
-
-            while(true)
+            Console.WriteLine("\nPricing policy:");
+            Console.WriteLine("  1) Regular");
+            Console.WriteLine("  2) Happy Hour (-20%)");
+            while (true)
             {
-                Console.WriteLine("Your choice (1-2):");
+                Console.Write("Your choice [1-2]: ");
                 var input = Console.ReadLine()?.Trim();
-
                 if (input == "1")
                 {
                     return new RegularPricing();
                 }
-                if(input == "2")
+                if (input == "2")
                 {
                     return new HappyHourPricing();
                 }
-                Console.WriteLine("Invalid input");
+                Console.WriteLine("Invalid choice.");
             }
         }
 
-        private void PrintReceipt(Guid orderId, DateTimeOffset at, string description, decimal subtotal, decimal total, string pricingName)
+        private void PrintReceipt(string desc, decimal subtotal, decimal total, string pricing)
         {
-            Console.WriteLine();
-            Console.WriteLine("===== Receipt =====");
-            Console.WriteLine($"Order {orderId} - {at:o}");
-            Console.WriteLine($"Description: {description}");
+            Console.WriteLine("\n===== Receipt =====");
+            Console.WriteLine($"Items: {desc}");
             Console.WriteLine($"Subtotal: {_currency}{subtotal:F2}");
-
-            if (pricingName.Equals("HappyHour", StringComparison.OrdinalIgnoreCase))
+            if (pricing.Equals("HappyHour", StringComparison.OrdinalIgnoreCase))
             {
                 var discount = subtotal - total;
-                Console.WriteLine($"Pricing: {pricingName} (-{discount:F2})");
+                Console.WriteLine($"Pricing: {pricing} (-{discount:F2})");
             }
             else
             {
-                Console.WriteLine($"Pricing: {pricingName}");
+                Console.WriteLine($"Pricing: {pricing}");
             }
             Console.WriteLine($"Total: {_currency}{Math.Round(total, 2):F2}");
-            Console.WriteLine("");
+            Console.WriteLine("===================\n");
         }
 
-        private static bool PromptYesNo(string message)
+        private static bool PromptYesNo(string msg)
         {
             while (true)
             {
-                Console.Write(message);
+                Console.Write(msg);
                 var key = (Console.ReadLine() ?? "").Trim().ToLowerInvariant();
-
                 if (key is "y" or "yes")
                 {
                     return true;

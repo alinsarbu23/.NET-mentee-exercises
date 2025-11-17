@@ -11,6 +11,11 @@ namespace Cafe.Application.Services
             subscribers.Add(subscriber);
         }
 
+        public void Unsubscribe(IOrderEventSubscriber subscriber)
+        {
+            subscribers.Remove(subscriber);
+        }
+
         public void Publish(OrderPlaced evt)
         {
             foreach (var subscriber in subscribers)
