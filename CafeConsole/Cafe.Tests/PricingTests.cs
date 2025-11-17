@@ -1,26 +1,34 @@
 ﻿using Cafe.Domain.Pricing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xunit;
 
 namespace Cafe.Tests
 {
     public class PricingTests
     {
         [Fact]
-        public void Regular_Apply10_Return10()
+        public void Regular_WhenApply_10_Returns_10()
         {
+            // Arrange
             var pricing = new RegularPricing();
-            Assert.Equal(10.00m, pricing.Apply(10.00m));
+
+            // Act
+            var total = pricing.Apply(10.00m);
+
+            // Assert
+            Assert.Equal(10.00m, total);
         }
 
         [Fact]
-        public void HappyHour_Apply10_Return8()
+        public void HappyHour_WhenApply_10_Returns_8()
         {
+            // Arrange
             var pricing = new HappyHourPricing();
-            Assert.Equal(8.00m, pricing.Apply(10.00m));
+
+            // Act
+            var total = pricing.Apply(10.00m);
+
+            // Assert
+            Assert.Equal(8.00m, total);
         }
     }
 }

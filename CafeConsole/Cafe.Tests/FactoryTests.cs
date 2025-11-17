@@ -9,17 +9,25 @@ namespace Cafe.Tests
         [InlineData("espresso", typeof(Espresso))]
         [InlineData("tea", typeof(Tea))]
         [InlineData("choc", typeof(HotChocolate))]
-        public void Factory_Returns_Type(string key, Type expected)
+        public void Factory_Returns_Correct_Type(string key, Type expected)
         {
-            var factoryType = new BeverageFactory();
-            var beverage = factoryType.Create(key);
+            // Arrange
+            var factory = new BeverageFactory();
+
+            // Act
+            var beverage = factory.Create(key);
+
+            // Assert
             Assert.IsType(expected, beverage);
         }
 
         [Fact]
         public void Factory_InvalidKey_Throws_ArgumentException()
         {
+            // Arrange
             var factory = new BeverageFactory();
+
+            // Act & Assert
             Assert.Throws<ArgumentException>(() => factory.Create("invalid"));
         }
     }

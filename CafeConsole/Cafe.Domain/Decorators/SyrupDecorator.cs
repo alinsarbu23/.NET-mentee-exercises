@@ -5,11 +5,11 @@ namespace Cafe.Domain.Decorators
     public class SyrupDecorator : BeverageDecorator
     {
         public string Flavour { get; }
+
         public SyrupDecorator(IBeverage BaseBeverage, string flavour) : base(BaseBeverage)
         {
             Flavour = flavour;
         }
-
 
         public override decimal Cost()
         {
