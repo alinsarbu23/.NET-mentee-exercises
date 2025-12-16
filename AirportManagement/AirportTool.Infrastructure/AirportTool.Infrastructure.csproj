@@ -20,4 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AirportTool.Application\AirportTool.Application.csproj" />
+    <ProjectReference Include="..\AirportTool.Domain\AirportTool.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
