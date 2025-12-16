@@ -1,0 +1,8 @@
+IF DB_ID('AirportManagement') IS NOT NULL
+BEGIN
+    ALTER DATABASE AirportManagement SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE AirportManagement;
+END;
+
+CREATE DATABASE AirportManagement;
+GO
