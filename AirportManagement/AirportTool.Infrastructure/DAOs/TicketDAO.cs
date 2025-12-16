@@ -6,7 +6,7 @@ namespace AirportTool.Infrastructure.Data.Models;
 
 [Table("Ticket")]
 [Index("FlightScheduleId", "FareClass", Name = "IX_Ticket_FlightSchedule_FareClass")]
-public partial class Ticket
+public partial class TicketDAO
 {
     [Key]
     public long Id { get; set; }
@@ -45,9 +45,9 @@ public partial class Ticket
 
     [ForeignKey("BookingId")]
     [InverseProperty("Tickets")]
-    public virtual Booking Booking { get; set; } = null!;
+    public virtual BookingDAO Booking { get; set; } = null!;
 
     [ForeignKey("FlightScheduleId")]
     [InverseProperty("Tickets")]
-    public virtual FlightSchedule FlightSchedule { get; set; } = null!;
+    public virtual FlightScheduleDAO FlightSchedule { get; set; } = null!;
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace AirportTool.Infrastructure.Data.Models;
 
 [Index("TailNumber", Name = "UQ_Aircraft_TailNumber", IsUnique = true)]
-public partial class Aircraft
+public partial class AircraftDAO
 {
     [Key]
     public int Id { get; set; }
@@ -19,8 +19,8 @@ public partial class Aircraft
     public int SeatCapacity { get; set; }
 
     [InverseProperty("AssignedAircraft")]
-    public virtual ICollection<FlightSchedule> FlightSchedules { get; set; } = new List<FlightSchedule>();
+    public virtual ICollection<FlightScheduleDAO> FlightSchedules { get; set; } = new List<FlightScheduleDAO>();
 
     [InverseProperty("DefaultAircraft")]
-    public virtual ICollection<Flight> Flights { get; set; } = new List<Flight>();
+    public virtual ICollection<FlightDAO> Flights { get; set; } = new List<FlightDAO>();
 }

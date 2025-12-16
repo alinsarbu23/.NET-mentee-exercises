@@ -16,29 +16,29 @@ public partial class AirportDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Address> Addresses { get; set; }
+    public virtual DbSet<AddressDAO> Addresses { get; set; }
 
-    public virtual DbSet<Aircraft> Aircraft { get; set; }
+    public virtual DbSet<AircraftDAO> Aircraft { get; set; }
 
-    public virtual DbSet<Airline> Airlines { get; set; }
+    public virtual DbSet<AirlineDAO> Airlines { get; set; }
 
-    public virtual DbSet<Airport> Airports { get; set; }
+    public virtual DbSet<AirportDAO> Airports { get; set; }
 
-    public virtual DbSet<Booking> Bookings { get; set; }
+    public virtual DbSet<BookingDAO> Bookings { get; set; }
 
-    public virtual DbSet<BookingStatus> BookingStatuses { get; set; }
+    public virtual DbSet<BookingStatusDAO> BookingStatuses { get; set; }
 
-    public virtual DbSet<Flight> Flights { get; set; }
+    public virtual DbSet<FlightDAO> Flights { get; set; }
 
-    public virtual DbSet<FlightSchedule> FlightSchedules { get; set; }
+    public virtual DbSet<FlightScheduleDAO> FlightSchedules { get; set; }
 
-    public virtual DbSet<FlightStatus> FlightStatuses { get; set; }
+    public virtual DbSet<FlightStatusDAO> FlightStatuses { get; set; }
 
-    public virtual DbSet<Gate> Gates { get; set; }
+    public virtual DbSet<GateDAO> Gates { get; set; }
 
-    public virtual DbSet<Ticket> Tickets { get; set; }
+    public virtual DbSet<TicketDAO> Tickets { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<UserDAO> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -46,12 +46,12 @@ public partial class AirportDbContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Airline>(entity =>
+        modelBuilder.Entity<AirlineDAO>(entity =>
         {
             entity.Property(e => e.IATACode).IsFixedLength();
         });
 
-        modelBuilder.Entity<Airport>(entity =>
+        modelBuilder.Entity<AirportDAO>(entity =>
         {
             entity.Property(e => e.IATACode).IsFixedLength();
 
@@ -60,7 +60,7 @@ public partial class AirportDbContext : DbContext
                 .HasConstraintName("FK_Airport_Address");
         });
 
-        modelBuilder.Entity<Booking>(entity =>
+        modelBuilder.Entity<BookingDAO>(entity =>
         {
             entity.Property(e => e.CreatedUtc).HasDefaultValueSql("(sysutcdatetime())");
 
@@ -73,7 +73,7 @@ public partial class AirportDbContext : DbContext
                 .HasConstraintName("FK_Booking_User");
         });
 
-        modelBuilder.Entity<Flight>(entity =>
+        modelBuilder.Entity<FlightDAO>(entity =>
         {
             entity.Property(e => e.IsActive).HasDefaultValue(true);
 
@@ -92,7 +92,7 @@ public partial class AirportDbContext : DbContext
                 .HasConstraintName("FK_Flight_OriginAirport");
         });
 
-        modelBuilder.Entity<FlightSchedule>(entity =>
+        modelBuilder.Entity<FlightScheduleDAO>(entity =>
         {
             entity.HasOne(d => d.AssignedAircraft).WithMany(p => p.FlightSchedules).HasConstraintName("FK_FlightSchedule_AssignedAircraft");
 
@@ -107,14 +107,14 @@ public partial class AirportDbContext : DbContext
             entity.HasOne(d => d.Gate).WithMany(p => p.FlightSchedules).HasConstraintName("FK_FlightSchedule_Gate");
         });
 
-        modelBuilder.Entity<Gate>(entity =>
+        modelBuilder.Entity<GateDAO>(entity =>
         {
             entity.HasOne(d => d.Airport).WithMany(p => p.Gates)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Gate_Airport");
         });
 
-        modelBuilder.Entity<Ticket>(entity =>
+        modelBuilder.Entity<TicketDAO>(entity =>
         {
             entity.Property(e => e.Currency).IsFixedLength();
 

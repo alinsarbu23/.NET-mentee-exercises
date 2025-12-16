@@ -7,7 +7,7 @@ namespace AirportTool.Infrastructure.Data.Models;
 [Table("Gate")]
 [Index("AirportId", "Code", Name = "IX_Gate_Airport_Code", IsUnique = true)]
 [Index("AirportId", "Code", Name = "UQ_Gate_Airport_Code", IsUnique = true)]
-public partial class Gate
+public partial class GateDAO
 {
     [Key]
     public int Id { get; set; }
@@ -19,8 +19,8 @@ public partial class Gate
 
     [ForeignKey("AirportId")]
     [InverseProperty("Gates")]
-    public virtual Airport Airport { get; set; } = null!;
+    public virtual AirportDAO Airport { get; set; } = null!;
 
     [InverseProperty("Gate")]
-    public virtual ICollection<FlightSchedule> FlightSchedules { get; set; } = new List<FlightSchedule>();
+    public virtual ICollection<FlightScheduleDAO> FlightSchedules { get; set; } = new List<FlightScheduleDAO>();
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AirportTool.Infrastructure.Data.Models;
 
 [Table("Address")]
-public partial class Address
+public partial class AddressDAO
 {
     [Key]
     public int Id { get; set; }
@@ -19,5 +19,5 @@ public partial class Address
     public string Street { get; set; } = null!;
 
     [InverseProperty("Address")]
-    public virtual ICollection<Airport> Airports { get; set; } = new List<Airport>();
+    public virtual ICollection<AirportDAO> Airports { get; set; } = new List<AirportDAO>();
 }

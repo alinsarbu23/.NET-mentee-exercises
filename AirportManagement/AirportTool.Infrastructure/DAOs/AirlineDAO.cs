@@ -7,7 +7,7 @@ namespace AirportTool.Infrastructure.Data.Models;
 [Table("Airline")]
 [Index("IATACode", Name = "IX_Airline_IATACode", IsUnique = true)]
 [Index("IATACode", Name = "UQ_Airline_IATACode", IsUnique = true)]
-public partial class Airline
+public partial class AirlineDAO
 {
     [Key]
     public int Id { get; set; }
@@ -19,5 +19,5 @@ public partial class Airline
     public string Name { get; set; } = null!;
 
     [InverseProperty("Airline")]
-    public virtual ICollection<Flight> Flights { get; set; } = new List<Flight>();
+    public virtual ICollection<FlightDAO> Flights { get; set; } = new List<FlightDAO>();
 }

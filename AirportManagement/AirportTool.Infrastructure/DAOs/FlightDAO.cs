@@ -7,7 +7,7 @@ namespace AirportTool.Infrastructure.Data.Models;
 [Table("Flight")]
 [Index("AirlineId", "FlightNumber", Name = "IX_Flight_Airline_FlightNumber")]
 [Index("OriginAirportId", "DestinationAirportId", Name = "IX_Flight_Origin_Destination")]
-public partial class Flight
+public partial class FlightDAO
 {
     [Key]
     public int Id { get; set; }
@@ -27,20 +27,20 @@ public partial class Flight
 
     [ForeignKey("AirlineId")]
     [InverseProperty("Flights")]
-    public virtual Airline Airline { get; set; } = null!;
+    public virtual AirlineDAO Airline { get; set; } = null!;
 
     [ForeignKey("DefaultAircraftId")]
     [InverseProperty("Flights")]
-    public virtual Aircraft? DefaultAircraft { get; set; }
+    public virtual AircraftDAO? DefaultAircraft { get; set; }
 
     [ForeignKey("DestinationAirportId")]
     [InverseProperty("FlightDestinationAirports")]
-    public virtual Airport DestinationAirport { get; set; } = null!;
+    public virtual AirportDAO DestinationAirport { get; set; } = null!;
 
     [InverseProperty("Flight")]
-    public virtual ICollection<FlightSchedule> FlightSchedules { get; set; } = new List<FlightSchedule>();
+    public virtual ICollection<FlightScheduleDAO> FlightSchedules { get; set; } = new List<FlightScheduleDAO>();
 
     [ForeignKey("OriginAirportId")]
     [InverseProperty("FlightOriginAirports")]
-    public virtual Airport OriginAirport { get; set; } = null!;
+    public virtual AirportDAO OriginAirport { get; set; } = null!;
 }

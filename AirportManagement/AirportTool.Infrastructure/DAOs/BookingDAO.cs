@@ -7,7 +7,7 @@ namespace AirportTool.Infrastructure.Data.Models;
 [Table("Booking")]
 [Index("ConfirmationCode", Name = "IX_Booking_ConfirmationCode", IsUnique = true)]
 [Index("ConfirmationCode", Name = "UQ_Booking_ConfirmationCode", IsUnique = true)]
-public partial class Booking
+public partial class BookingDAO
 {
     [Key]
     public long Id { get; set; }
@@ -26,12 +26,12 @@ public partial class Booking
 
     [ForeignKey("BookingStatusId")]
     [InverseProperty("Bookings")]
-    public virtual BookingStatus BookingStatus { get; set; } = null!;
+    public virtual BookingStatusDAO BookingStatus { get; set; } = null!;
 
     [InverseProperty("Booking")]
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+    public virtual ICollection<TicketDAO> Tickets { get; set; } = new List<TicketDAO>();
 
     [ForeignKey("UserId")]
     [InverseProperty("Bookings")]
-    public virtual User User { get; set; } = null!;
+    public virtual UserDAO User { get; set; } = null!;
 }

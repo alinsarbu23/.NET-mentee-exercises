@@ -6,7 +6,7 @@ namespace AirportTool.Infrastructure.Data.Models;
 
 [Table("FlightSchedule")]
 [Index("FlightId", "ScheduledDepartureUtc", Name = "IX_FlightSchedule_Flight_Departure")]
-public partial class FlightSchedule
+public partial class FlightScheduleDAO
 {
     [Key]
     public int Id { get; set; }
@@ -27,20 +27,20 @@ public partial class FlightSchedule
 
     [ForeignKey("AssignedAircraftId")]
     [InverseProperty("FlightSchedules")]
-    public virtual Aircraft? AssignedAircraft { get; set; }
+    public virtual AircraftDAO? AssignedAircraft { get; set; }
 
     [ForeignKey("FlightId")]
     [InverseProperty("FlightSchedules")]
-    public virtual Flight Flight { get; set; } = null!;
+    public virtual FlightDAO Flight { get; set; } = null!;
 
     [ForeignKey("FlightStatusId")]
     [InverseProperty("FlightSchedules")]
-    public virtual FlightStatus FlightStatus { get; set; } = null!;
+    public virtual FlightStatusDAO FlightStatus { get; set; } = null!;
 
     [ForeignKey("GateId")]
     [InverseProperty("FlightSchedules")]
-    public virtual Gate? Gate { get; set; }
+    public virtual GateDAO? Gate { get; set; }
 
     [InverseProperty("FlightSchedule")]
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+    public virtual ICollection<TicketDAO> Tickets { get; set; } = new List<TicketDAO>();
 }

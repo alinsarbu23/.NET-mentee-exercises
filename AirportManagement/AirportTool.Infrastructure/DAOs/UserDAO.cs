@@ -6,7 +6,7 @@ namespace AirportTool.Infrastructure.Data.Models;
 
 [Table("User")]
 [Index("Email", Name = "UQ_User_Email", IsUnique = true)]
-public partial class User
+public partial class UserDAO
 {
     [Key]
     public int Id { get; set; }
@@ -18,5 +18,5 @@ public partial class User
     public string Email { get; set; } = null!;
 
     [InverseProperty("User")]
-    public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+    public virtual ICollection<BookingDAO> Bookings { get; set; } = new List<BookingDAO>();
 }

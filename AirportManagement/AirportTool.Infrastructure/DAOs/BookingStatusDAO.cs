@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AirportTool.Infrastructure.Data.Models;
 
 [Table("BookingStatus")]
-public partial class BookingStatus
+public partial class BookingStatusDAO
 {
     [Key]
     public int Id { get; set; }
@@ -13,5 +13,5 @@ public partial class BookingStatus
     public string Status { get; set; } = null!;
 
     [InverseProperty("BookingStatus")]
-    public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+    public virtual ICollection<BookingDAO> Bookings { get; set; } = new List<BookingDAO>();
 }
