@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using AirportTool.Infrastructure.Data.Models;
+﻿using AirportTool.Infrastructure.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AirportTool.Infrastructure.Data;

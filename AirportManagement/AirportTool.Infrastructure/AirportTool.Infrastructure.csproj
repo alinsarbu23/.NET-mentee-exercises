@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\Bookings\" />
-    <Folder Include="DTOs\Flights\" />
-    <Folder Include="DTOs\Schedules\" />
-    <Folder Include="Configurations\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 

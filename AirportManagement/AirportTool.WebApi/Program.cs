@@ -1,6 +1,6 @@
 using AirportTool.Application.Mappers;
+using AirportTool.Infrastructure;
 using AirportTool.Infrastructure.Configurations;
-using AirportTool.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
