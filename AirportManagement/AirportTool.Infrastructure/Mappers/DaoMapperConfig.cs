@@ -3,7 +3,7 @@ using AirportTool.Domain.Models;
 using AirportTool.Infrastructure.Data.Models;
 using AutoMapper;
 
-namespace AirportTool.Infrastructure.Configurations
+namespace AirportTool.Infrastructure.Mappers
 {
     public class DaoMapperConfig : Profile
     {
