@@ -11,5 +11,9 @@ namespace AirportTool.Application.Interfaces
         Task<IReadOnlyList<Booking>> GetActiveByFlightScheduleAsync(
             int flightScheduleId,
             CancellationToken cancellationToken=default);
+
+        Task SetStatusByCodeAsync(string confirmationCode, int bookingStatusId, CancellationToken ct = default);
+
+
     }
 }

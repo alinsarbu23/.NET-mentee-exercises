@@ -59,6 +59,32 @@ namespace AirportTool.Infrastructure.Repositories
         }
 
 
+        public async Task<int> GetCapacityForScheduleAsync(int flightScheduleId, CancellationToken ct = default)
+        {
+            var schedule = await context.FlightSchedules
+                .AsNoTracking()
+                .Include(fs => fs.AssignedAircraft)
+                .Include(fs => fs.Flight)
+                    .ThenInclude(f => f.DefaultAircraft)
+                .FirstOrDefaultAsync(fs => fs.Id == flightScheduleId, ct);
 
-    }
+            if (schedule == null)
+            {
+                throw new KeyNotFoundException("Flight schedule not found.");
+                }
+
+            var cap = schedule.AssignedAircraft?.SeatCapacity
+                      ?? schedule.Flight?.DefaultAircraft?.SeatCapacity;
+
+            if (cap == null)
+            {
+                throw new InvalidOperationException("Cannot determine aircraft capacity.");
+            }
+            return cap.Value;
+        }
+
+
+
+
+}
 }

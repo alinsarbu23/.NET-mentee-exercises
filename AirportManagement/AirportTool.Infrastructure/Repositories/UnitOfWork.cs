@@ -1,5 +1,6 @@
 ﻿using AirportTool.Application.Interfaces;
 using AirportTool.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace AirportTool.Infrastructure.Repositories
 {
@@ -30,5 +31,11 @@ namespace AirportTool.Infrastructure.Repositories
         {
             return await context.SaveChangesAsync(ct);
         }
+
+        public Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
+        {
+            return context.Database.BeginTransactionAsync(cancellationToken);
+        }
+            
     }
 }

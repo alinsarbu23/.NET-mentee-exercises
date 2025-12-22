@@ -30,5 +30,7 @@ namespace AirportTool.Application.Interfaces
             int airportId,
             string gateCode,
             CancellationToken cancellationToken = default);
+
+        Task<int> GetCapacityForScheduleAsync(int flightScheduleId, CancellationToken ct = default);
     }
 }

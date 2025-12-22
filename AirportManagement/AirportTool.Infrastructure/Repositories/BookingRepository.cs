@@ -35,5 +35,18 @@ namespace AirportTool.Infrastructure.Repositories
 
             return mapper.Map<List<Booking>>(daos);
         }
+
+
+
+        public async Task SetStatusByCodeAsync(string confirmationCode, int bookingStatusId, CancellationToken ct = default)
+        {
+            var dao = await context.Bookings
+                .AsTracking()
+                .FirstOrDefaultAsync(b => b.ConfirmationCode == confirmationCode, ct);
+
+            if (dao == null) throw new KeyNotFoundException("Booking not found.");
+
+            dao.BookingStatusId = bookingStatusId;
+        }
     }
 }

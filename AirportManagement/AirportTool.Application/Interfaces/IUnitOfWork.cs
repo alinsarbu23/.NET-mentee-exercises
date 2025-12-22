@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace AirportTool.Application.Interfaces
 {
@@ -17,6 +18,8 @@ namespace AirportTool.Application.Interfaces
 
         IBookingRepository Bookings { get; }
 
-        Task<int> SaveChangesAsync(CancellationToken ct = default);
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+
+        Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken ct = default);
     }
 }
