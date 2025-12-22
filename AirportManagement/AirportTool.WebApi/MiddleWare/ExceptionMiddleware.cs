@@ -32,15 +32,25 @@ namespace AirportTool.WebApi.Middleware
         private static Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             var code = HttpStatusCode.InternalServerError;
+
             var problem = new
             {
                 title = "An unexpected error occurred.",
                 detail = exception.Message
             };
 
-            if (exception is ArgumentException) code = HttpStatusCode.BadRequest;
-            else if (exception is KeyNotFoundException) code = HttpStatusCode.NotFound;
-            else if (exception is InvalidOperationException) code = HttpStatusCode.Conflict;
+            if (exception is ArgumentException)
+            {
+                code = HttpStatusCode.BadRequest;
+            }
+            else if (exception is KeyNotFoundException)
+            {
+                code = HttpStatusCode.NotFound;
+            }
+            else if (exception is InvalidOperationException)
+            {
+                code = HttpStatusCode.Conflict;
+            }
 
             context.Response.ContentType = "application/problem+json";
             context.Response.StatusCode = (int)code;
