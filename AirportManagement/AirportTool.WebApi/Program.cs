@@ -1,6 +1,13 @@
+using AirportTool.Application.Interfaces;
 using AirportTool.Application.Mappers;
+using AirportTool.Application.Services.Bookings;
+using AirportTool.Application.Services.Flights;
+using AirportTool.Application.Services.Schedules;
+using AirportTool.Application.Services.Tickets;
 using AirportTool.Infrastructure;
 using AirportTool.Infrastructure.Mappers;
+using AirportTool.Infrastructure.Repositories;
+using AirportTool.WebApi.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +20,19 @@ builder.Services.AddDbContext<AirportDbContext>(options =>
 
 builder.Services.AddAutoMapper(typeof(DtoMapperConfig), typeof(DaoMapperConfig));
 
+builder.Services.AddScoped<IFlightRepository, FlightRepository>();
+builder.Services.AddScoped<IFlightScheduleRepository, FlightScheduleRepository>();
+builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 // Add services to the container.
+builder.Services.AddScoped<BookingService>();
+builder.Services.AddScoped<ScheduleService>();
+builder.Services.AddScoped<FlightService>();
+builder.Services.AddScoped<TicketService>();  
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -30,6 +49,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 
