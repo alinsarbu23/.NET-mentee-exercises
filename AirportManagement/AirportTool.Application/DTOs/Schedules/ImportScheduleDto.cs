@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AirportTool.Application.DTOs
+namespace AirportTool.Application.DTOs.Schedules
 {
     public class ImportScheduleRowDto
     {
