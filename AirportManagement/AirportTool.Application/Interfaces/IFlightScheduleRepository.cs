@@ -19,5 +19,16 @@ namespace AirportTool.Application.Interfaces
             int flightId,
             DateTime scheduledDepartureUtc,
             CancellationToken cancellationToken = default);
+
+        Task<bool> HasGateOverlapAsync(
+            int gateId,
+            DateTime departureUtc,
+            DateTime arrivalUtc,
+            CancellationToken cancellationToken = default);
+
+        Task<Gate?> GetGateByCodeAsync(
+            int airportId,
+            string gateCode,
+            CancellationToken cancellationToken = default);
     }
 }

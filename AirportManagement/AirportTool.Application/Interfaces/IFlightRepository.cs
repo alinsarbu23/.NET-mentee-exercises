@@ -1,4 +1,5 @@
-﻿using AirportTool.Domain.Models;
+﻿using AirportTool.Domain.Entities;
+using AirportTool.Domain.Models;
 
 namespace AirportTool.Application.Interfaces
 {
@@ -9,6 +10,21 @@ namespace AirportTool.Application.Interfaces
             string? destinationIata,
             DateTime? departureDateUtc,
             string? airlineIata,
+            CancellationToken cancellationToken = default);
+
+        Task<Airline?> GetAirlineByIataAsync(
+           string iata,
+           CancellationToken cancellationToken = default);
+
+        Task<Airport?> GetAirportByIataAsync(
+            string iata,
+            CancellationToken cancellationToken = default);
+
+        Task<Flight?> GetByKeyAsync(
+            int airlineId,
+            string flightNumber,
+            int originAirportId,
+            int destinationAirportId,
             CancellationToken cancellationToken = default);
     }
 }

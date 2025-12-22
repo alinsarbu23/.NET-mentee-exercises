@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AirportTool.Application\AirportTool.Application.csproj" />
     <ProjectReference Include="..\AirportTool.Infrastructure\AirportTool.Infrastructure.csproj" />
   </ItemGroup>

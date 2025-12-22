@@ -31,5 +31,34 @@ namespace AirportTool.Infrastructure.Repositories
 
             return mapper.Map<FlightSchedule>(dao);
         }
+
+        public async Task<bool> HasGateOverlapAsync(
+            int gateId,
+            DateTime departureUtc,
+            DateTime arrivalUtc,
+            CancellationToken cancellationToken = default)
+        {
+            var exists = await context.FlightSchedules.AnyAsync(
+                schedule =>
+                    schedule.GateId == gateId &&
+                    schedule.ScheduledDepartureUtc < arrivalUtc &&
+                    schedule.ScheduledArrivalUtc > departureUtc,
+                cancellationToken);
+
+            return exists;
+        }
+
+        public async Task<Gate?> GetGateByCodeAsync(int airportId,string gateCode, CancellationToken cancellationToken = default)
+        {
+            var dao = await context.Gates.FirstOrDefaultAsync(g =>
+                g.AirportId == airportId &&
+                g.Code == gateCode,
+                cancellationToken);
+
+            return dao == null ? null : mapper.Map<Gate>(dao);
+        }
+
+
+
     }
 }
