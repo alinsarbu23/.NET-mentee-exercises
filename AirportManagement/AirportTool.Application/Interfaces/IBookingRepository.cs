@@ -2,7 +2,7 @@
 
 namespace AirportTool.Application.Interfaces
 {
-    public interface IBookingRepository : IRepository<Booking>
+    public interface IBookingRepository : IRepository<Booking, long>
     {
         Task<Booking?> GetConfirmationCodeAsync(
             string confirmationCode,

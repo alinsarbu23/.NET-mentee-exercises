@@ -11,7 +11,7 @@ public partial class TicketDAO
     [Key]
     public long Id { get; set; }
 
-    public long BookingId { get; set; }
+    public long? BookingId { get; set; }
 
     public int FlightScheduleId { get; set; }
 

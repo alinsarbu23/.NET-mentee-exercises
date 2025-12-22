@@ -3,7 +3,7 @@
     public class Ticket
     {
         public long Id { get; set; }
-        public long BookingId { get; set; }
+        public long? BookingId { get; set; }
         public int FlightScheduleId { get; set; }
         public string FareClass { get; set; } = string.Empty;
         public decimal BasePrice { get; set; }

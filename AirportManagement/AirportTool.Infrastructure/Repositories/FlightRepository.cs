@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AirportTool.Infrastructure.Repositories
 {
-    public class FlightRepository : RepositoryBase<Flight, FlightDAO>, IFlightRepository
+    public class FlightRepository : RepositoryBase<Flight, FlightDAO, int>, IFlightRepository
     {
         public FlightRepository(AirportDbContext context, IMapper mapper) : base(context, mapper, context.Flights)
         {

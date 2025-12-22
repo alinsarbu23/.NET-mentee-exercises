@@ -1,4 +1,4 @@
-﻿using AirportTool.Application.DTOs.Schedules;
+﻿using AirportTool.Application.DTOs;
 using AirportTool.Application.Interfaces;
 using AirportTool.Domain.Models;
 using AirportTool.Infrastructure.DTOs.Schedules;

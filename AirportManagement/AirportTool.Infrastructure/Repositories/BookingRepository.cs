@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace AirportTool.Infrastructure.Repositories
 {
     public class BookingRepository
-        : RepositoryBase<Booking, BookingDAO>, IBookingRepository
+        : RepositoryBase<Booking, BookingDAO, long>, IBookingRepository
     {
         public BookingRepository(AirportDbContext context, IMapper mapper): base(context, mapper, context.Bookings)
         {

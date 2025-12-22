@@ -1,11 +1,11 @@
 ﻿namespace AirportTool.Application.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<TEntity, TKey> where TEntity : class
     {
-        Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
-        Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellationToken = default);
-        Task AddAsync(T entity, CancellationToken cancellationToken = default);
-        Task UpdateAsync(T entity, CancellationToken cancellationToken = default);
-        Task DeleteAsync(int id, CancellationToken cancellationToken = default);
+        Task<TEntity?> GetByIdAsync(TKey id, CancellationToken cancellationToken = default);
+        Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
+        Task AddAsync(TEntity entity, CancellationToken cancellationToken = default);
+        Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default);
+        Task DeleteAsync(TKey id, CancellationToken cancellationToken = default);
     }
 }

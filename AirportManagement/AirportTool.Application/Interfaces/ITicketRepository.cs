@@ -5,11 +5,11 @@ using AirportTool.Domain.Models;
 
 namespace AirportTool.Application.Interfaces
 {
-    public interface ITicketRepository : IRepository<Ticket>
+    public interface ITicketRepository : IRepository<Ticket, long>
     {
         Task<IReadOnlyList<Ticket>> GetByFlightScheduleIdAsync(
             int flightScheduleId,
-            CancellationToken ct = default);
+            CancellationToken cancellationToken = default);
     }
 }
 

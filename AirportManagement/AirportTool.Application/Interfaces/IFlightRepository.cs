@@ -3,7 +3,7 @@ using AirportTool.Domain.Models;
 
 namespace AirportTool.Application.Interfaces
 {
-    public interface IFlightRepository : IRepository<Flight>
+    public interface IFlightRepository : IRepository<Flight, int>
     {
         Task<IReadOnlyList<Flight>> SearchAsync(
             string? originIata,

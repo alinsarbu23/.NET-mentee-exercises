@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AirportTool.Application.Interfaces
 {
-    public interface IFlightScheduleRepository:IRepository<FlightSchedule>
+    public interface IFlightScheduleRepository:IRepository<FlightSchedule, int>
     {
         Task<IReadOnlyList<FlightSchedule>> GetUpcomingAsync(
             DateTime fromUtc,
