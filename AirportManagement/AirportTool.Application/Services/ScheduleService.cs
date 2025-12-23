@@ -276,5 +276,43 @@ namespace AirportTool.Application.Services.Schedules
         }
 
 
+        public async Task UpdateAsync(int id, UpdateScheduleDto dto, CancellationToken cancellationToken = default)
+        {
+            if (dto.ScheduledArrivalUtc <= dto.ScheduledDepartureUtc)
+            {
+                throw new ArgumentException("ScheduledArrivalUtc must be after ScheduledDepartureUtc.");
+            }
+                
+            var schedule = await unitOfWork.FlightSchedules.GetByIdAsync(id, cancellationToken);
+            if (schedule == null)
+            {
+                throw new KeyNotFoundException("Schedule not found.");
+            }
+
+            if (dto.GateId.HasValue)
+            {
+                var overlap = await unitOfWork.FlightSchedules.HasGateOverlapAsync(
+                    dto.GateId.Value,
+                    dto.ScheduledDepartureUtc,
+                    dto.ScheduledArrivalUtc,
+                    excludeScheduleId: id,     
+                    cancellationToken: cancellationToken);
+
+                if (overlap)
+                {
+                    throw new InvalidOperationException("Gate overlap detected for the given time window.");
+                }
+                    
+            }
+
+            schedule.ScheduledDepartureUtc = dto.ScheduledDepartureUtc;
+            schedule.ScheduledArrivalUtc = dto.ScheduledArrivalUtc;
+            schedule.GateId = dto.GateId;
+            schedule.FlightStatusId = dto.FlightStatusId;
+
+            await unitOfWork.FlightSchedules.UpdateAsync(schedule, cancellationToken);
+            await unitOfWork.SaveChangesAsync(cancellationToken);
+        }
+
     }
 }

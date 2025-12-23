@@ -15,19 +15,27 @@ namespace AirportTool.WebApi.Controllers
             _scheduleService = scheduleService;
         }
 
-        // GET /api/schedules/{id}
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<GetScheduleByIdDto>> GetById(int id, CancellationToken cancellationToken)
+        public async Task<ActionResult<GetScheduleByIdDto>> GetById(int id, CancellationToken ct)
         {
-            var schedule = await _scheduleService.GetByIdAsync(id, cancellationToken);
-
-            if (schedule == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(schedule);
+            var result = await _scheduleService.GetByIdAsync(id, ct);
+            if (result == null) return NotFound();
+            return Ok(result);
         }
+
+        // GET /api/schedules/{id}
+        //[HttpGet("{id:int}")]
+        //public async Task<ActionResult<GetScheduleByIdDto>> GetById(int id, CancellationToken cancellationToken)
+        //{
+        //    var schedule = await _scheduleService.GetByIdAsync(id, cancellationToken);
+
+        //    if (schedule == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(schedule);
+        //}
 
         // GET /api/schedules/stats/upcoming
         [HttpGet("stats/upcoming")]
@@ -50,6 +58,13 @@ namespace AirportTool.WebApi.Controllers
                 nameof(GetById),
                 new { id = id },
                 null);
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> Update(int id, [FromBody] UpdateScheduleDto dto, CancellationToken ct)
+        {
+            await _scheduleService.UpdateAsync(id, dto, ct);
+            return NoContent();
         }
 
         [HttpPost("import")]
