@@ -1,4 +1,6 @@
-﻿using AirportTool.Application.Services.Flights;
+﻿using AirportTool.Application.DTOs.Flights;
+using AirportTool.Application.Services.Flights;
+using AirportTool.Infrastructure.DTOs.Common;
 using AirportTool.Infrastructure.DTOs.Flights;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,26 +31,18 @@ namespace AirportTool.WebApi.Controllers
             return Ok(flight);
         }
 
-        // GET /api/flights?originIata=OTP&destinationIata=LHR&date=2025-12-01&airlineIata=RO
-        //[HttpGet]
-        //public async Task<ActionResult<IReadOnlyList<GetFlightByIdDto>>> Search(
-        //    [FromQuery] string? originIata,
-        //    [FromQuery] string? destinationIata,
-        //    [FromQuery] DateTime? date,
-        //    [FromQuery] string? airlineIata,
-        //    CancellationToken cancellationToken)
-        //{
-        //    var flights = await _flightService.SearchAsync(
-        //        originIata,
-        //        destinationIata,
-        //        date,
-        //        airlineIata,
-        //        cancellationToken);
+        [HttpGet]
+        public async Task<ActionResult<PagedResultDto<FlightSearchResultDto>>> Search(
+            [FromQuery] GetFlightSearchDto query,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _flightService.SearchAsync(query, cancellationToken);
+            return Ok(result);
+        }
 
-        //    return Ok(flights);
-        //}
 
-        // POST /api/flights
+
+
         [HttpPost]
         public async Task<ActionResult> Create(
             [FromBody] CreateFlightDto dto,

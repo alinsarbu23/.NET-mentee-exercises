@@ -17,9 +17,7 @@ namespace AirportTool.WebApi.Controllers
 
         // GET /api/schedules/{id}
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<GetScheduleByIdDto>> GetById(
-            int id,
-            CancellationToken cancellationToken)
+        public async Task<ActionResult<GetScheduleByIdDto>> GetById(int id, CancellationToken cancellationToken)
         {
             var schedule = await _scheduleService.GetByIdAsync(id, cancellationToken);
 

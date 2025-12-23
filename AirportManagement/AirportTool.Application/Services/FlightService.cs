@@ -1,5 +1,7 @@
-﻿using AirportTool.Application.Interfaces;
+﻿using AirportTool.Application.DTOs.Flights;
+using AirportTool.Application.Interfaces;
 using AirportTool.Domain.Models;
+using AirportTool.Infrastructure.DTOs.Common;
 using AirportTool.Infrastructure.DTOs.Flights;
 using AutoMapper;
 
@@ -28,10 +30,9 @@ namespace AirportTool.Application.Services.Flights
             return mapper.Map<GetFlightByIdDto>(flight);
         }
 
-        public async Task<IReadOnlyList<GetFlightByIdDto>> SearchAsync(string? origin, string? destination, DateTime? date, string? airline, CancellationToken cancellationToken = default)
+        public async Task<PagedResultDto<FlightSearchResultDto>> SearchAsync(GetFlightSearchDto query, CancellationToken cancellationToken = default)
         {
-            var flights = await unitOfWork.Flights.SearchAsync(origin, destination, date, airline, cancellationToken);
-            return mapper.Map<IReadOnlyList<GetFlightByIdDto>>(flights);
+            return await unitOfWork.FlightSchedules.SearchAsync(query, cancellationToken);
         }
 
         public async Task<int> CreateAsync(CreateFlightDto dto, CancellationToken cancellationToken = default)

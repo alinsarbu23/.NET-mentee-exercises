@@ -1,4 +1,6 @@
-﻿using AirportTool.Domain.Models;
+﻿using AirportTool.Application.DTOs.Flights;
+using AirportTool.Domain.Models;
+using AirportTool.Infrastructure.DTOs.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,10 @@ namespace AirportTool.Application.Interfaces
             string gateCode,
             CancellationToken cancellationToken = default);
 
-        Task<int> GetCapacityForScheduleAsync(int flightScheduleId, CancellationToken ct = default);
+        Task<int> GetCapacityForScheduleAsync(int flightScheduleId, CancellationToken cancellationToken = default);
+
+        Task<PagedResultDto<FlightSearchResultDto>> SearchAsync(
+            GetFlightSearchDto query,
+            CancellationToken ct = default);
     }
 }
