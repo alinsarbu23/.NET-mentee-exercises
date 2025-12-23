@@ -40,9 +40,6 @@ namespace AirportTool.WebApi.Controllers
             return Ok(result);
         }
 
-
-
-
         [HttpPost]
         public async Task<ActionResult> Create(
             [FromBody] CreateFlightDto dto,

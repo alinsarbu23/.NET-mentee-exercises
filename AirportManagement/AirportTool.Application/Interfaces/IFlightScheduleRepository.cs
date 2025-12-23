@@ -26,6 +26,7 @@ namespace AirportTool.Application.Interfaces
             int gateId,
             DateTime departureUtc,
             DateTime arrivalUtc,
+            int? excludeScheduleId = null,
             CancellationToken cancellationToken = default);
 
         Task<Gate?> GetGateByCodeAsync(

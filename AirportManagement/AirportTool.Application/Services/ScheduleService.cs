@@ -43,6 +43,7 @@ namespace AirportTool.Application.Services.Schedules
                     dto.GateId.Value,
                     dto.ScheduledDepartureUtc,
                     dto.ScheduledArrivalUtc,
+                    null,
                     cancellationToken);
 
                 if (overlap)
@@ -116,34 +117,37 @@ namespace AirportTool.Application.Services.Schedules
             using var reader = new StreamReader(jsonStream);
             var json = await reader.ReadToEndAsync(cancellationToken);
 
-            var rows = JsonSerializer.Deserialize<List<ImportScheduleRowDto>>(json,
+            var rows = JsonSerializer.Deserialize<List<ImportScheduleRowDto>>(
+                json,
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             if (rows == null || rows.Count == 0)
             {
                 throw new ArgumentException("Empty or invalid JSON.");
-            }    
+            }
                 
+
             if (rows.Count > 1000)
             {
                 throw new InvalidOperationException("Maximum 1000 rows.");
             }
-                
+               
             var result = new ImportScheduleResultDto
             {
                 Total = rows.Count
             };
 
-            int rowIndex = 0;
-
-            foreach (var row in rows)
+            for (int i = 0; i < rows.Count; i++)
             {
-                rowIndex++;
+                var rowIndex = i + 1;
+                var row = rows[i];
 
                 try
                 {
-                    await ImportSingleRowAsync(row, cancellationToken);
-                    result.Created++; 
+                    var outcome = await ImportSingleRowAsync(row, cancellationToken);
+
+                    if (outcome == ImportOutcome.Created) result.Created++;
+                    else if (outcome == ImportOutcome.Updated) result.Updated++;
                 }
                 catch (Exception ex)
                 {
@@ -158,32 +162,34 @@ namespace AirportTool.Application.Services.Schedules
             return result;
         }
 
-        private async Task ImportSingleRowAsync(ImportScheduleRowDto row, CancellationToken cancellationToken)
+        private enum ImportOutcome { Created, Updated }
+
+        private async Task<ImportOutcome> ImportSingleRowAsync(ImportScheduleRowDto row, CancellationToken cancellationToken)
         {
             if (row.ScheduledArrivalUtc <= row.ScheduledDepartureUtc)
             {
                 throw new ArgumentException("Arrival must be after departure.");
             }
 
+
             var airline = await unitOfWork.Flights.GetAirlineByIataAsync(row.AirlineIata, cancellationToken);
-            if(airline is null)
+            if (airline == null)
             {
                 throw new InvalidOperationException($"Airline {row.AirlineIata} not found.");
             }
 
             var origin = await unitOfWork.Flights.GetAirportByIataAsync(row.OriginIata, cancellationToken);
-
-            if(origin is null)
+            if(origin == null)
             {
                 throw new InvalidOperationException($"Origin airport {row.OriginIata} not found.");
             }
 
             var destination = await unitOfWork.Flights.GetAirportByIataAsync(row.DestinationIata, cancellationToken);
-            if(destination is null)
+            if(destination == null)
             {
                 throw new InvalidOperationException($"Destination airport {row.DestinationIata} not found.");
             }
-
+                              
             var flight = await unitOfWork.Flights.GetByKeyAsync(
                 airline.Id,
                 row.FlightNumber,
@@ -203,23 +209,35 @@ namespace AirportTool.Application.Services.Schedules
                 };
 
                 await unitOfWork.Flights.AddAsync(flight, cancellationToken);
-                await unitOfWork.SaveChangesAsync(cancellationToken);
+                await unitOfWork.SaveChangesAsync(cancellationToken); 
             }
 
+            var schedule = await unitOfWork.FlightSchedules.FindByFlightAndDepartureAsync(
+                flight.Id,
+                row.ScheduledDepartureUtc,
+                cancellationToken);
+
             int? gateId = null;
+
             if (!string.IsNullOrWhiteSpace(row.GateCode))
             {
-                var gate = await unitOfWork.FlightSchedules.GetGateByCodeAsync(origin.Id, row.GateCode!, cancellationToken);
-                if(gate is null)
+                var gate = await unitOfWork.FlightSchedules.GetGateByCodeAsync(
+                    origin.Id,
+                    row.GateCode!,
+                    cancellationToken);
+
+                if (gate is null)
                 {
                     throw new InvalidOperationException($"Gate {row.GateCode} not found.");
                 }
+                    
 
                 var overlap = await unitOfWork.FlightSchedules.HasGateOverlapAsync(
-                    gate.Id,
-                    row.ScheduledDepartureUtc,
-                    row.ScheduledArrivalUtc,
-                    cancellationToken);
+                    gateId: gate.Id,
+                    departureUtc: row.ScheduledDepartureUtc,
+                    arrivalUtc: row.ScheduledArrivalUtc,
+                    excludeScheduleId: schedule?.Id,              
+                    cancellationToken: cancellationToken);
 
                 if (overlap)
                 {
@@ -230,11 +248,6 @@ namespace AirportTool.Application.Services.Schedules
                 gateId = gate.Id;
             }
 
-            var schedule = await unitOfWork.FlightSchedules.FindByFlightAndDepartureAsync(
-                    flight.Id,
-                    row.ScheduledDepartureUtc,
-                    cancellationToken);
-
             if (schedule == null)
             {
                 schedule = new FlightSchedule
@@ -243,18 +256,23 @@ namespace AirportTool.Application.Services.Schedules
                     ScheduledDepartureUtc = row.ScheduledDepartureUtc,
                     ScheduledArrivalUtc = row.ScheduledArrivalUtc,
                     GateId = gateId,
-                    FlightStatusId = 1 
+                    FlightStatusId = 1
                 };
 
                 await unitOfWork.FlightSchedules.AddAsync(schedule, cancellationToken);
+                await unitOfWork.SaveChangesAsync(cancellationToken);
+
+                return ImportOutcome.Created;
             }
             else
             {
                 schedule.ScheduledArrivalUtc = row.ScheduledArrivalUtc;
                 schedule.GateId = gateId;
-            }
 
-            await unitOfWork.SaveChangesAsync(cancellationToken);
+                await unitOfWork.SaveChangesAsync(cancellationToken);
+
+                return ImportOutcome.Updated;
+            }
         }
 
 

@@ -37,17 +37,18 @@ namespace AirportTool.Infrastructure.Repositories
             int gateId,
             DateTime departureUtc,
             DateTime arrivalUtc,
+            int? excludeScheduleId = null,
             CancellationToken cancellationToken = default)
         {
-            var exists = await context.FlightSchedules.AnyAsync(
+            return await context.FlightSchedules.AnyAsync(
                 schedule =>
                     schedule.GateId == gateId &&
+                    (excludeScheduleId == null || schedule.Id != excludeScheduleId) &&
                     schedule.ScheduledDepartureUtc < arrivalUtc &&
                     schedule.ScheduledArrivalUtc > departureUtc,
                 cancellationToken);
-
-            return exists;
         }
+
 
         public async Task<Gate?> GetGateByCodeAsync(int airportId,string gateCode, CancellationToken cancellationToken = default)
         {
