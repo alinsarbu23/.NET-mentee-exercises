@@ -12,19 +12,22 @@ namespace AirportTool.Infrastructure.Repositories
         public IFlightScheduleRepository FlightSchedules { get; }
         public ITicketRepository Tickets { get; }
         public IBookingRepository Bookings { get; }
+        public IAircraftRepository Aircraft { get; }
 
         public UnitOfWork(
                 AirportDbContext context,
                 IFlightRepository flights,
                 IFlightScheduleRepository schedules,
                 ITicketRepository tickets,
-                IBookingRepository bookings)
+                IBookingRepository bookings,
+                IAircraftRepository aircraft)
         {
             this.context = context;
             Flights = flights;
             FlightSchedules = schedules;
             Tickets = tickets;
             Bookings = bookings;
+            Aircraft = aircraft;
         }
 
         public async Task<int> SaveChangesAsync(CancellationToken ct = default)

@@ -17,6 +17,8 @@ namespace AirportTool.Application.Interfaces
         ITicketRepository Tickets { get; }
 
         IBookingRepository Bookings { get; }
+        IAircraftRepository Aircraft { get; }
+
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 

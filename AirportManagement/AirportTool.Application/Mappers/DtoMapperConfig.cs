@@ -1,4 +1,5 @@
 ﻿using AirportTool.Domain.Models;
+using AirportTool.Infrastructure.DTOs.Aircraft;
 using AirportTool.Infrastructure.DTOs.Bookings;
 using AirportTool.Infrastructure.DTOs.Flights;
 using AirportTool.Infrastructure.DTOs.Schedules;
@@ -23,6 +24,10 @@ namespace AirportTool.Application.Mappers
 
             CreateMap<CreateTicketDto, Ticket>().ReverseMap();
             CreateMap<Ticket, GetTicketByIdDto>().ReverseMap();
+
+            CreateMap<Aircraft, GetAircraftByIdDto>();
+            CreateMap<CreateAircraftDto, Aircraft>();
+            CreateMap<UpdateAircraftDto, Aircraft>();
         }
     }
 }

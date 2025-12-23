@@ -1,5 +1,6 @@
 using AirportTool.Application.Interfaces;
 using AirportTool.Application.Mappers;
+using AirportTool.Application.Services;
 using AirportTool.Application.Services.Bookings;
 using AirportTool.Application.Services.Flights;
 using AirportTool.Application.Services.Schedules;
@@ -24,13 +25,16 @@ builder.Services.AddScoped<IFlightRepository, FlightRepository>();
 builder.Services.AddScoped<IFlightScheduleRepository, FlightScheduleRepository>();
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+builder.Services.AddScoped<IAircraftRepository, AircraftRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Add services to the container.
 builder.Services.AddScoped<BookingService>();
 builder.Services.AddScoped<ScheduleService>();
 builder.Services.AddScoped<FlightService>();
-builder.Services.AddScoped<TicketService>();  
+builder.Services.AddScoped<TicketService>();
+builder.Services.AddScoped<AircraftService>();
+
 
 
 
