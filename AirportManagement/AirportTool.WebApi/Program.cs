@@ -26,6 +26,7 @@ builder.Services.AddScoped<IFlightScheduleRepository, FlightScheduleRepository>(
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IAircraftRepository, AircraftRepository>();
+builder.Services.AddScoped<IGateRepository, GateRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Add services to the container.
@@ -34,6 +35,8 @@ builder.Services.AddScoped<ScheduleService>();
 builder.Services.AddScoped<FlightService>();
 builder.Services.AddScoped<TicketService>();
 builder.Services.AddScoped<AircraftService>();
+builder.Services.AddScoped<GateService>();
+
 
 
 

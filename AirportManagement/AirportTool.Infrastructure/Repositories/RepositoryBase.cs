@@ -23,7 +23,11 @@ namespace AirportTool.Infrastructure.Repositories
         public virtual async Task<TDomain?> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)
         {
             var dao = await dbSet.FindAsync(new object[] { id! }, cancellationToken);
-            return dao == null ? null : mapper.Map<TDomain>(dao);
+            if(dao == null)
+            {
+                return null;
+            }
+            return mapper.Map<TDomain>(dao);
         }
 
         public virtual async Task<IReadOnlyList<TDomain>> GetAllAsync(CancellationToken cancellationToken = default)
@@ -38,11 +42,27 @@ namespace AirportTool.Infrastructure.Repositories
             await dbSet.AddAsync(dao, cancellationToken);
         }
 
-        public virtual Task UpdateAsync(TDomain entity, CancellationToken cancellationToken = default)
+        public virtual async Task UpdateAsync(TDomain entity, CancellationToken ct = default)
         {
-            var dao = mapper.Map<TDao>(entity);
-            dbSet.Update(dao);
-            return Task.CompletedTask;
+            var idProp = typeof(TDomain).GetProperty("Id");
+            if (idProp == null)
+            {
+                throw new InvalidOperationException($"{typeof(TDomain).Name} must have an Id property.");
+            }
+                
+            var idValue = idProp.GetValue(entity);
+            if (idValue == null)
+            {
+                throw new InvalidOperationException("Entity Id cannot be null.");
+            }
+                
+            var existingDao = await dbSet.FindAsync(new object[] { idValue }, ct);
+            if (existingDao == null)
+            {
+                throw new KeyNotFoundException($"{typeof(TDomain).Name} not found.");
+            }
+                
+            mapper.Map(entity, existingDao);
         }
 
         public virtual async Task DeleteAsync(TKey id, CancellationToken cancellationToken = default)

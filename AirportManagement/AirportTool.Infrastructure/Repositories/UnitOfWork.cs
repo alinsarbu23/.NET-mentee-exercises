@@ -13,6 +13,7 @@ namespace AirportTool.Infrastructure.Repositories
         public ITicketRepository Tickets { get; }
         public IBookingRepository Bookings { get; }
         public IAircraftRepository Aircraft { get; }
+        public IGateRepository Gates { get; }
 
         public UnitOfWork(
                 AirportDbContext context,
@@ -20,7 +21,8 @@ namespace AirportTool.Infrastructure.Repositories
                 IFlightScheduleRepository schedules,
                 ITicketRepository tickets,
                 IBookingRepository bookings,
-                IAircraftRepository aircraft)
+                IAircraftRepository aircraft,
+                IGateRepository gates)
         {
             this.context = context;
             Flights = flights;
@@ -28,6 +30,7 @@ namespace AirportTool.Infrastructure.Repositories
             Tickets = tickets;
             Bookings = bookings;
             Aircraft = aircraft;
+            Gates = gates;
         }
 
         public async Task<int> SaveChangesAsync(CancellationToken ct = default)

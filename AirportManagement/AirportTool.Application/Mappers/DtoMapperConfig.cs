@@ -2,6 +2,7 @@
 using AirportTool.Infrastructure.DTOs.Aircraft;
 using AirportTool.Infrastructure.DTOs.Bookings;
 using AirportTool.Infrastructure.DTOs.Flights;
+using AirportTool.Infrastructure.DTOs.Gates;
 using AirportTool.Infrastructure.DTOs.Schedules;
 using AirportTool.Infrastructure.DTOs.Tickets;
 using AutoMapper;
@@ -28,6 +29,10 @@ namespace AirportTool.Application.Mappers
             CreateMap<Aircraft, GetAircraftByIdDto>();
             CreateMap<CreateAircraftDto, Aircraft>();
             CreateMap<UpdateAircraftDto, Aircraft>();
+
+            CreateMap<Gate, GetGateByIdDto>();
+            CreateMap<CreateGateDto, Gate>();
+            CreateMap<UpdateGateDto, Gate>();
         }
     }
 }

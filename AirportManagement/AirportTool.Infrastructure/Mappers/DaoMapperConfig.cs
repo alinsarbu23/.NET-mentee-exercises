@@ -21,6 +21,8 @@ namespace AirportTool.Infrastructure.Mappers
             CreateMap<GateDAO, Gate>().ReverseMap();
             CreateMap<TicketDAO, Ticket>().ReverseMap();
             CreateMap<UserDAO, User>().ReverseMap();
+            CreateMap<AircraftDAO, Aircraft>().ReverseMap();
+            CreateMap<GateDAO, Gate>().ReverseMap();
         }
     }
 }
