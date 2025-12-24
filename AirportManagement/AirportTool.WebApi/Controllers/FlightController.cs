@@ -2,6 +2,7 @@
 using AirportTool.Application.Services.Flights;
 using AirportTool.Infrastructure.DTOs.Common;
 using AirportTool.Infrastructure.DTOs.Flights;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AirportTool.WebApi.Controllers
@@ -31,6 +32,7 @@ namespace AirportTool.WebApi.Controllers
             return Ok(flight);
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<PagedResultDto<FlightSearchResultDto>>> Search(
             [FromQuery] GetFlightSearchDto query,
@@ -40,6 +42,7 @@ namespace AirportTool.WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = "Staff")]
         [HttpPost]
         public async Task<ActionResult> Create(
             [FromBody] CreateFlightDto dto,
@@ -54,6 +57,7 @@ namespace AirportTool.WebApi.Controllers
         }
 
         // PUT /api/flights/{id}
+        [Authorize(Roles = "Staff")]
         [HttpPut("{id:int}")]
         public async Task<ActionResult> Update(
             int id,
@@ -65,6 +69,7 @@ namespace AirportTool.WebApi.Controllers
         }
 
         // DELETE /api/flights/{id}
+        [Authorize(Roles = "Staff")]
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(
             int id,

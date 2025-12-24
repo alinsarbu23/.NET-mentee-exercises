@@ -1,5 +1,6 @@
 ﻿using AirportTool.Application.Services.Tickets;
 using AirportTool.Infrastructure.DTOs.Tickets;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AirportTool.WebApi.Controllers
@@ -8,74 +9,55 @@ namespace AirportTool.WebApi.Controllers
     [Route("api/[controller]")]
     public class TicketsController : ControllerBase
     {
-        private readonly TicketService _ticketService;
+        private readonly TicketService ticketService;
 
         public TicketsController(TicketService ticketService)
         {
-            _ticketService = ticketService;
+            this.ticketService = ticketService;
         }
 
-        // GET /api/tickets/{id}
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<GetTicketByIdDto>> GetById(
-            int id,
-            CancellationToken cancellationToken)
-        {
-            var ticket = await _ticketService.GetByIdAsync(id, cancellationToken);
-
-            if (ticket == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(ticket);
-        }
-
-        // GET /api/tickets/by-schedule/{flightScheduleId}
         [HttpGet("by-schedule/{flightScheduleId:int}")]
-        public async Task<ActionResult<IReadOnlyList<GetTicketByIdDto>>> GetByFlightSchedule(
+        public async Task<ActionResult<IReadOnlyList<GetTicketByIdDto>>> GetBySchedule(
             int flightScheduleId,
             CancellationToken cancellationToken)
         {
-            var tickets = await _ticketService.GetByFlightScheduleAsync(
-                flightScheduleId,
-                cancellationToken);
-
-            return Ok(tickets);
+            var offers = await ticketService.GetOffersByScheduleAsync(flightScheduleId, cancellationToken);
+            return Ok(offers);
         }
 
-        // POST /api/tickets
-        [HttpPost]
-        public async Task<ActionResult> Create(
-            [FromBody] CreateTicketDto dto,
-            CancellationToken cancellationToken)
+        [AllowAnonymous]
+        [HttpGet("{id:long}")]
+        public async Task<ActionResult<GetTicketByIdDto>> GetOfferById(long id, CancellationToken cancellationToken)
         {
-            var id = await _ticketService.CreateAsync(dto, cancellationToken);
+            var offer = await ticketService.GetOfferByIdAsync(id, cancellationToken);
+            if (offer == null) return NotFound();
+            return Ok(offer);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create([FromBody] CreateTicketDto dto, CancellationToken cancellationToken)
+        {
+            var id = await ticketService.CreateOfferAsync(dto, cancellationToken);
 
             return CreatedAtAction(
-                nameof(GetById),
-                new { id = id },
+                nameof(GetOfferById),
+                new { id },
                 null);
         }
 
-        // PUT /api/tickets/{id}
-        [HttpPut("{id:int}")]
-        public async Task<ActionResult> Update(
-            int id,
-            [FromBody] UpdateTicketDto dto,
-            CancellationToken cancellationToken)
+        [Authorize(Roles = "Staff")]
+        [HttpPut("{id:long}")]
+        public async Task<ActionResult> Update(long id, [FromBody] UpdateTicketDto dto, CancellationToken cancellationToken)
         {
-            await _ticketService.UpdateAsync(id, dto, cancellationToken);
+            await ticketService.UpdateInventoryAsync(id, dto, cancellationToken);
             return NoContent();
         }
 
-        // DELETE /api/tickets/{id}
-        [HttpDelete("{id:int}")]
-        public async Task<ActionResult> Delete(
-            int id,
-            CancellationToken cancellationToken)
+        [Authorize(Roles = "Staff")]
+        [HttpDelete("{id:long}")]
+        public async Task<ActionResult> Delete(long id, CancellationToken cancellationToken)
         {
-            await _ticketService.DeleteAsync(id, cancellationToken);
+            await ticketService.DeleteOfferAsync(id, cancellationToken);
             return NoContent();
         }
     }

@@ -1,9 +1,11 @@
 ﻿using AirportTool.Application.Services;
 using AirportTool.Infrastructure.DTOs.Aircraft;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AirportTool.WebApi.Controllers
 {
+    [Authorize(Roles = "Staff")]
     [ApiController]
     [Route("api/[controller]")]
     public class AircraftController : ControllerBase

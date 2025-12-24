@@ -1,6 +1,7 @@
 ﻿using AirportTool.Application.DTOs.Bookings;
 using AirportTool.Application.Services.Bookings;
 using AirportTool.Infrastructure.DTOs.Bookings;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AirportTool.WebApi.Controllers
@@ -17,6 +18,7 @@ namespace AirportTool.WebApi.Controllers
         }
 
         // POST /api/bookings
+        [Authorize(Roles = "User,Staff")]
         [HttpPost]
         public async Task<ActionResult> Create(
             [FromBody] CreateBookingDto dto,
@@ -24,7 +26,6 @@ namespace AirportTool.WebApi.Controllers
         {
             var confirmationCode = await _bookingService.CreateAsync(dto, cancellationToken);
 
-            // 201 + Location header
             return CreatedAtAction(
                 nameof(GetByCode),
                 new { code = confirmationCode },
@@ -32,6 +33,7 @@ namespace AirportTool.WebApi.Controllers
         }
 
         // GET /api/bookings/{code}
+        [Authorize(Roles = "User,Staff")]
         [HttpGet("{code}")]
         public async Task<ActionResult<GetBookingDetailsDto>> GetByCode(
             string code,
@@ -45,6 +47,7 @@ namespace AirportTool.WebApi.Controllers
         }
 
         // POST /api/bookings/{code}/cancel
+        [Authorize(Roles = "User,Staff")]
         [HttpPost("{code}/cancel")]
         public async Task<ActionResult> Cancel(
             string code,

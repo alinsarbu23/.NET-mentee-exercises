@@ -1,5 +1,6 @@
 ﻿using AirportTool.Application.Services.Schedules;
 using AirportTool.Infrastructure.DTOs.Schedules;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AirportTool.WebApi.Controllers
@@ -15,6 +16,7 @@ namespace AirportTool.WebApi.Controllers
             _scheduleService = scheduleService;
         }
 
+        [AllowAnonymous]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<GetScheduleByIdDto>> GetById(int id, CancellationToken ct)
         {
@@ -23,21 +25,7 @@ namespace AirportTool.WebApi.Controllers
             return Ok(result);
         }
 
-        // GET /api/schedules/{id}
-        //[HttpGet("{id:int}")]
-        //public async Task<ActionResult<GetScheduleByIdDto>> GetById(int id, CancellationToken cancellationToken)
-        //{
-        //    var schedule = await _scheduleService.GetByIdAsync(id, cancellationToken);
-
-        //    if (schedule == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return Ok(schedule);
-        //}
-
-        // GET /api/schedules/stats/upcoming
+        [Authorize(Roles = "Staff, User")]
         [HttpGet("stats/upcoming")]
         public async Task<ActionResult<IReadOnlyList<ScheduleStatsDto>>> GetUpcomingStats(
             CancellationToken cancellationToken)
@@ -67,6 +55,7 @@ namespace AirportTool.WebApi.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Staff")]
         [HttpPost("import")]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> Import(IFormFile file, CancellationToken cancellationToken)

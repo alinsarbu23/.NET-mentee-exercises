@@ -1,10 +1,12 @@
 ﻿using AirportTool.Application.Services;
 using AirportTool.Infrastructure.DTOs.Gates;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AirportTool.WebApi.Controllers
 {
     [ApiController]
+    [Authorize(Roles = "Staff")]
     [Route("api/[controller]")]
     public class GatesController : ControllerBase
     {
