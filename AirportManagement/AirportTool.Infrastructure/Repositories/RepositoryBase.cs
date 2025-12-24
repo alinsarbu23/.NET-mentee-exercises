@@ -44,26 +44,21 @@ namespace AirportTool.Infrastructure.Repositories
 
         public virtual async Task UpdateAsync(TDomain entity, CancellationToken ct = default)
         {
-            var idProp = typeof(TDomain).GetProperty("Id");
-            if (idProp == null)
+            var id = (object?)typeof(TDomain).GetProperty("Id")?.GetValue(entity);
+            if (id == null)
             {
-                throw new InvalidOperationException($"{typeof(TDomain).Name} must have an Id property.");
+                throw new InvalidOperationException("Entity must have Id for update.");
             }
-                
-            var idValue = idProp.GetValue(entity);
-            if (idValue == null)
-            {
-                throw new InvalidOperationException("Entity Id cannot be null.");
-            }
-                
-            var existingDao = await dbSet.FindAsync(new object[] { idValue }, ct);
+
+            var existingDao = await dbSet.FindAsync(new[] { id }, ct);
             if (existingDao == null)
             {
-                throw new KeyNotFoundException($"{typeof(TDomain).Name} not found.");
+                throw new KeyNotFoundException("Entity not found for update.");
             }
-                
+
             mapper.Map(entity, existingDao);
         }
+
 
         public virtual async Task DeleteAsync(TKey id, CancellationToken cancellationToken = default)
         {

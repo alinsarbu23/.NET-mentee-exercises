@@ -14,6 +14,7 @@ namespace AirportTool.Application.Interfaces
 
         Task SetStatusByCodeAsync(string confirmationCode, int bookingStatusId, CancellationToken ct = default);
 
+        Task<long> GetOffersBookingIdAsync(CancellationToken ct = default);
 
     }
 }

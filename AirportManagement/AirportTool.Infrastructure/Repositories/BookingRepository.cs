@@ -48,5 +48,19 @@ namespace AirportTool.Infrastructure.Repositories
 
             dao.BookingStatusId = bookingStatusId;
         }
+
+        public async Task<long> GetOffersBookingIdAsync(CancellationToken ct = default)
+        {
+            var id = await context.Bookings
+                .AsNoTracking()
+                .Where(b => b.ConfirmationCode == "OFFERS00")
+                .Select(b => (long?)b.Id)
+                .FirstOrDefaultAsync(ct);
+
+            if (id == null)
+                throw new InvalidOperationException("Offers booking is missing. Create Booking with ConfirmationCode = 'OFFERS00'.");
+
+            return id.Value;
+        }
     }
 }

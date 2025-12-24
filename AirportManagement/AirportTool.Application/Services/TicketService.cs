@@ -7,37 +7,32 @@ namespace AirportTool.Application.Services.Tickets
 {
     public class TicketService
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+        private readonly IUnitOfWork unitOfWork;
+        private readonly IMapper mapper;
 
         public TicketService(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
+            this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
-        public async Task<GetTicketByIdDto?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyList<GetTicketByIdDto>> GetOffersByScheduleAsync(int flightScheduleId, CancellationToken cancellationToken = default)
         {
-            var ticket = await _unitOfWork.Tickets.GetByIdAsync(id, cancellationToken);
+            var offers = await unitOfWork.Tickets.GetOffersByScheduleIdAsync(flightScheduleId, cancellationToken);
+            return mapper.Map<IReadOnlyList<GetTicketByIdDto>>(offers);
+        }
 
-            if (ticket == null)
+        public async Task<GetTicketByIdDto?> GetOfferByIdAsync(long id, CancellationToken ct = default)
+        {
+            var offer = await unitOfWork.Tickets.GetOfferByIdAsync(id, ct);
+            if(offer == null)
             {
                 return null;
             }
-
-            var result = _mapper.Map<GetTicketByIdDto>(ticket);
-            return result;
+            return mapper.Map<GetTicketByIdDto>(offer);
         }
 
-        public async Task<IReadOnlyList<GetTicketByIdDto>> GetByFlightScheduleAsync(int flightScheduleId, CancellationToken cancellationToken = default)
-        {
-            var tickets = await _unitOfWork.Tickets.GetByFlightScheduleIdAsync(flightScheduleId, cancellationToken);
-
-            var result = _mapper.Map<IReadOnlyList<GetTicketByIdDto>>(tickets);
-            return result;
-        }
-
-        public async Task<int> CreateAsync(CreateTicketDto dto, CancellationToken cancellationToken = default)
+        public async Task<long> CreateOfferAsync(CreateTicketDto dto, CancellationToken ct = default)
         {
             if (dto.BasePrice < 0)
             {
@@ -49,33 +44,72 @@ namespace AirportTool.Application.Services.Tickets
                 throw new ArgumentException("Taxes must be non-negative.");
             }
 
-            var ticket = _mapper.Map<Ticket>(dto);
-
-            await _unitOfWork.Tickets.AddAsync(ticket, cancellationToken);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
-
-            return (int)ticket.Id;
-        }
-
-        public async Task UpdateAsync(int ticketId, UpdateTicketDto dto, CancellationToken cancellationToken = default)
-        {
-            var ticket = await _unitOfWork.Tickets.GetByIdAsync(ticketId, cancellationToken);
-
-            if (ticket == null)
+            if (dto.SeatInventory < 0)
             {
-                throw new KeyNotFoundException("Ticket not found.");
+                throw new ArgumentException("SeatInventory must be non-negative.");
             }
 
-            ticket.SeatInventory = dto.SeatInventory;
+            if (string.IsNullOrWhiteSpace(dto.FareClass))
+            {
+                throw new ArgumentException("FareClass is required.");
+            }
 
-            await _unitOfWork.Tickets.UpdateAsync(ticket, cancellationToken);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            if (string.IsNullOrWhiteSpace(dto.Currency))
+            {
+                throw new ArgumentException("Currency is required.");
+            }
+
+            var schedule = await unitOfWork.FlightSchedules.GetByIdAsync(dto.FlightScheduleId, ct);
+            if (schedule == null)
+            {
+                throw new KeyNotFoundException("Flight schedule not found.");
+            }
+
+            var offersBookingId = await unitOfWork.Bookings.GetOffersBookingIdAsync(ct);
+
+            var offer = mapper.Map<Ticket>(dto);
+            offer.BookingId = offersBookingId;
+            offer.TotalPrice = dto.BasePrice + dto.Taxes;
+            offer.SeatNumber = null;
+            offer.PassengerFullName = null;
+            offer.PassengerEmail = null;
+
+            await unitOfWork.Tickets.AddAsync(offer, ct);
+            await unitOfWork.SaveChangesAsync(ct);
+
+            return offer.Id;
         }
 
-        public async Task DeleteAsync(int id, CancellationToken cancellationToken = default)
+        public async Task UpdateInventoryAsync(long id, UpdateTicketDto dto, CancellationToken cancellationToken = default)
         {
-            await _unitOfWork.Tickets.DeleteAsync(id, cancellationToken);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            if (dto.SeatInventory < 0)
+            {
+                throw new ArgumentException("SeatInventory must be non-negative.");
+            }
+                
+
+            var offer = await unitOfWork.Tickets.GetOfferByIdAsync(id, cancellationToken);
+            if (offer == null)
+            {
+                throw new KeyNotFoundException("Ticket offer not found.");
+            }
+                
+            offer.SeatInventory = dto.SeatInventory;
+
+            await unitOfWork.Tickets.UpdateAsync(offer, cancellationToken);
+            await unitOfWork.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task DeleteOfferAsync(long id, CancellationToken cancellationToken = default)
+        {
+            var offer = await unitOfWork.Tickets.GetOfferByIdAsync(id, cancellationToken);
+            if (offer == null)
+            {
+                throw new KeyNotFoundException("Ticket offer not found.");
+            }
+                
+            await unitOfWork.Tickets.DeleteAsync(id, cancellationToken);
+            await unitOfWork.SaveChangesAsync(cancellationToken);
         }
     }
 }
